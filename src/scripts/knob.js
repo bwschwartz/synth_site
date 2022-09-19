@@ -28,13 +28,16 @@ class Knob {
     }
 
     function rotate(e) {
-      // e.stopPropagation();
-      const result = Math.floor(volumeKnob(e) - 80);
+      let result = Math.floor(volumeKnob(e) - 80);
       knob.style.transform = `rotate(${result}deg)`;
 
-      const ampChange = result/360;
+      if (result < 0) {
+        result = 360 + result;
+      }
+
       this.osc.frequency.setValueAtTime(result, this.audioCtx.currentTime)
-      return result;
+      console.log(result)
+      // return result;
     }
 
     const that = this;
@@ -51,11 +54,7 @@ class Knob {
     }
 
     knob.addEventListener("mousedown", startRotation);
-    // knob.addEventListener("mousedown", rotate.bind(that));
-    // console.log(this.osc);
-    // this.osc.frequency.setValueAtTime(880, this.audioCtx.currentTime);
 
-    // changeAmp(this.osc, 880, this.audioCtx);
   }
 
 }

@@ -1,6 +1,6 @@
 class Oscillator {
 
-  init(audioCtx) {
+  init(audioCtx, buttonNum) {
 
     audioCtx = audioCtx; // get this from the context.js file
     const oscillator = audioCtx.createOscillator();
@@ -8,15 +8,19 @@ class Oscillator {
     oscillator.frequency.setValueAtTime(220, audioCtx.currentTime);
     oscillator.connect(audioCtx.destination);
 
-    document.querySelector('button').addEventListener('click', function() {
-    oscillator.start();
-      })
+    // document.querySelector('button').addEventListener('click', function() {
+    // oscillator.start();
+    //   })
+
+    console.log(document.querySelector('.second-button'))
+
+    document.querySelector(`.button${buttonNum}`).addEventListener('click', function() {
+      oscillator.start();
+        })
+
 
     return oscillator;
-
-
     }
 }
-
 
 module.exports = Oscillator;

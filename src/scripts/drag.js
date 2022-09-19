@@ -1,4 +1,8 @@
 class Drag {
+
+  init() {
+    
+  }
   makeDraggable() {
     $( "#draggable" ).draggable();
   };
