@@ -68,12 +68,7 @@ class Knob {
         vol = 0;
       } else if (vol>barW){
         vol = barW;
-      } else {
-        // prog.style.width = vol + "px";
-
-        // audio.vol = percentage / 100;
       }
-
       prevX = x;
       prevY = y;
 
@@ -84,18 +79,17 @@ class Knob {
       const result = Math.floor(volumeKnob(e) - 80);
       console.log(result);
       knob.style.transform = `rotate(${result}deg)`;
-
     }
 
-    function startRotation() {
+    function startRotation(e) {
       window.addEventListener("mousemove", rotate);
       window.addEventListener("mouseup", endRotation);
+      e.stopPropagation();
     }
 
     function endRotation() {
       window.removeEventListener("mousemove", rotate);
     }
-
     knob.addEventListener("mousedown", startRotation);
   }
 

@@ -10,7 +10,6 @@ class Drag {
   makeKnobDraggable() {
     $( "#draggable2" ).draggable();
   }
-
 }
 
 module.exports = Drag;
