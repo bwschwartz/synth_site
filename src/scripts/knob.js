@@ -1,21 +1,8 @@
 // source: https://www.youtube.com/watch?v=C2m4wMfjllA
 
-
 class Knob {
   runKnob() {
     const knob = document.querySelector(".knob");
-    const audio = document.querySelector("#audio");
-    const prog = document.querySelector(".progress > div");
-    const bar = document.querySelector(".progress");
-    const play = document.querySelector(".play-btn");
-    const percent = document.querySelector(".percent");
-
-    let prevX = 0;
-    let prevY = 0;
-    let vol = 0.0;
-
-    // barW = bar.clientWidth;
-    const barW = 3;
 
     function volumeKnob(e) {
       const w = knob.clientWidth / 2;
@@ -26,59 +13,21 @@ class Knob {
 
       const dX = w-x;
       const dY = h-y;
+
       const rad = Math.atan2(dY, dX);
 
-      let deg = rad* (180 / Math.PI);
-
-      // top right quadrant
-      if (y < h && x > w){
-        if (prevX <= x && prevY <= y) {
-          vol++;
-        } else if (prevX >= x && prevY >= y) {
-          vol--;
-        }
-
-      } else if (y > h && x > w) {
-        if (prevX >= x && prevY <= y) {
-          vol++;
-        } else if (prevX < x && prevY >= y) {
-          vol--;
-        }
-
-      } else if (y < h && x < w) {
-        if (prevX <= x && prevY >= y) {
-          vol++;
-        }
-        else if ( prevX >= x && prevY <= y) {
-          vol--;
-        }
-
-      } else if (y > h && x < w) {
-        if (prevX >= x && prevY >= y) {
-          vol++;
-        }
-        else if (prevX <= x && prevY <= y) {
-          vol--;
-        }
-      }
-
-      const percentage = Math.round((100*vol)/ barW);
-
-      if (vol < 0){
-        vol = 0;
-      } else if (vol>barW){
-        vol = barW;
-      }
-      prevX = x;
-      prevY = y;
+      let deg = rad * (180 / Math.PI);
 
       return deg;
     }
 
     function rotate(e) {
       const result = Math.floor(volumeKnob(e) - 80);
-      console.log(result);
+      // console.log(result);
       knob.style.transform = `rotate(${result}deg)`;
+      const ampChange = result/360;
+      console.log(ampChange);
+      return ampChange;
     }
 
     function startRotation(e) {
