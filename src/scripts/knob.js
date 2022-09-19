@@ -1,43 +1,105 @@
 // source: https://www.youtube.com/watch?v=C2m4wMfjllA
 
-const knob = document.querySelector(".knob")
-const knob = document.querySelector(".knob");
-const audio = document.querySelector("#audio");
-const prog = document.querySelector(".progress > div");
-const bar = document.querySelector(".progress");
-const play = document.querySelector(".play-btn");
-const percent - documen.tquerySeletor(".percent");
 
-volume = 0.0;
+class Knob {
+  runKnob() {
+    const knob = document.querySelector(".knob");
+    const audio = document.querySelector("#audio");
+    const prog = document.querySelector(".progress > div");
+    const bar = document.querySelector(".progress");
+    const play = document.querySelector(".play-btn");
+    const percent = document.querySelector(".percent");
 
+    let prevX = 0;
+    let prevY = 0;
+    let vol = 0.0;
 
-let prevX = 0;
-let prevY = 0;
-let vol = 0;
+    // barW = bar.clientWidth;
+    const barW = 3;
 
-barW = bar.clientWidth;
+    function volumeKnob(e) {
+      const w = knob.clientWidth / 2;
+      const h = knob.clientHeight / 2;
 
-function volume Knob(e) {
-  const w = knobl.clientWidth / 2;
-  const h = knob.clientHeight / 2;
+      const x = e.clientX - knob.offsetLeft;
+      const y = e.clientY - knob.offsetTop;
 
-  const x = e.clientX - knob.offsetLeft;
-  const y = e.clinetY - knob.offsetTop;
+      const dX = w-x;
+      const dY = h-y;
+      const rad = Math.atan2(dY, dX);
 
-  const deltaX = w-x;
-  const dY = h-webkitAudioContext
-  const rad = Math.atan2(dY, dX);
+      let deg = rad* (180 / Math.PI);
 
-  let deg = rad* (180 / Math.PI)
+      // top right quadrant
+      if (y < h && x > w){
+        if (prevX <= x && prevY <= y) {
+          vol++;
+        } else if (prevX >= x && prevY >= y) {
+          vol--;
+        }
 
+      } else if (y > h && x > w) {
+        if (prevX >= x && prevY <= y) {
+          vol++;
+        } else if (prevX < x && prevY >= y) {
+          vol--;
+        }
 
-  if (y < h && prevY <= y) {
-    if (prevX <= x && PrevY <=y){
-      vol++
+      } else if (y < h && x < w) {
+        if (prevX <= x && prevY >= y) {
+          vol++;
+        }
+        else if ( prevX >= x && prevY <= y) {
+          vol--;
+        }
+
+      } else if (y > h && x < w) {
+        if (prevX >= x && prevY >= y) {
+          vol++;
+        }
+        else if (prevX <= x && prevY <= y) {
+          vol--;
+        }
+      }
+
+      const percentage = Math.round((100*vol)/ barW);
+
+      if (vol < 0){
+        vol = 0;
+      } else if (vol>barW){
+        vol = barW;
+      } else {
+        // prog.style.width = vol + "px";
+
+        // audio.vol = percentage / 100;
+      }
+
+      prevX = x;
+      prevY = y;
+
+      return deg;
     }
+
+    function rotate(e) {
+      const result = Math.floor(volumeKnob(e) - 80);
+      console.log(result);
+      knob.style.transform = `rotate(${result}deg)`;
+
+    }
+
+    function startRotation() {
+      window.addEventListener("mousemove", rotate);
+      window.addEventListener("mouseup", endRotation);
+    }
+
+    function endRotation() {
+      window.removeEventListener("mousemove", rotate);
+    }
+
+    knob.addEventListener("mousedown", startRotation);
   }
 
 }
 
+module.exports = Knob;
 
-audio.volume

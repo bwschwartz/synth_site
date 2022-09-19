@@ -19,7 +19,7 @@ h1 {
 
 .knob {
   width: 10em;
-  height: 10 em;
+  height: 10em;
   position: relative;
 }
 
@@ -41,7 +41,7 @@ h1 {
 }
 
 .progress {
-  width: 1005;
+  width: 100px;
   height: 6px;
   box-shadow: inset -2px -2px #888, inset 2px 2px #111;
   background: #333;
@@ -59,7 +59,27 @@ h1 {
 }
 
 #draggable2 {
-  width: 170px;
-  height: 170px;
+  width: 180px;
+  height: 300px;
   padding: 0em;
+}
+
+.outer-knob {
+  display: flex;
+  width: 10em;
+  height: 11em;
+  background-color: white;
+}
+
+.module-container {
+  display: flex;
+  background-color: black;
+  height: 500px;
+  width: 200px;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.module-knob {
+  background-color: blue;
 }

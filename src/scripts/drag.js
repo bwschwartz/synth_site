@@ -1,7 +1,4 @@
 class Drag {
-  test(){
-    console.log("hey bitch from drag.js")
-  }
   makeDraggable() {
     $( "#draggable" ).draggable();
   };

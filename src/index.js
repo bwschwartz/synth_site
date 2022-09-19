@@ -8,6 +8,9 @@ const Context = require('./scripts/context')
 const context = new Context;
 const audioCtx = context.makeContext()
 
+const Knob = require('./scripts/knob')
+const knob = new Knob;
+
 
 document.addEventListener("DOMContentLoaded", () =>{
   drag.makeDraggable();
@@ -16,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () =>{
   osc.init(audioCtx); //is this kosher (passing in arg to init)
   drag.makeClassDraggable();
   drag.makeKnobDraggable();
+
+  knob.runKnob();
 
 
 

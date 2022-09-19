@@ -16,7 +16,7 @@ h1 {
 
 .knob {
   width: 10em;
-  height: 10 em;
+  height: 10em;
   position: relative;
 }
 
@@ -37,19 +37,8 @@ h1 {
   box-shadow: 0px 0px 10px #ff3886 ;
 }
 
-// .knob::after {
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   border: 3px solid #fff;
-//   width: 130%;
-//   box-shadow:
-//     0px 0px 20px #ff3686,
-//     inset 0px 0px 10px #ff3683;
-// }
-
 .progress {
-  width: 1005;
+  width: 100px;
   height: 6px;
   box-shadow:
     inset -2px -2px #888,
@@ -69,7 +58,38 @@ h1 {
 }
 
 #draggable2 {
-  width: 170px; height: 170px; padding:0em;
+  width: 180px;
+  height: 300px;
+  padding:0em;
+}
+
+.outer-knob{
+  display: flex;
+  width: 10em;
+  height: 11em;
+  // margin: 10em;
+  background-color: white;
+}
+
+// .flex-container {
+//   display: flex;
+//   height: 100px;
+//   margin: 100px;
+//   background-color: DodgerBlue;
+// }
+
+.module-container{
+  display: flex;
+  background-color: black;
+  height: 500px;
+  width: 200px;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.module-knob {
+  background-color: blue;
+
 }
 
 
