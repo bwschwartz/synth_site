@@ -1,10 +1,7 @@
 class Oscillator {
 
-  test() {
-    console.log("in the oscillator file")
-  }
-
   init(audioCtx) {
+
     audioCtx = audioCtx; // get this from the context.js file
     const oscillator = audioCtx.createOscillator();
     oscillator.type = 'sine';
@@ -12,8 +9,13 @@ class Oscillator {
     oscillator.connect(audioCtx.destination);
 
     document.querySelector('button').addEventListener('click', function() {
-    oscillator.start()
-      })}
+    oscillator.start();
+      })
+
+    return oscillator;
+
+
+    }
 }
 
 
