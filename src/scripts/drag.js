@@ -1,6 +1,10 @@
 class Drag {
 
   init() {
+    this.makeDraggable();
+    this.makeClassDraggable();
+    this.makeVcoDraggable();
+    this.makeVcaDraggable();
 
   }
   makeDraggable() {
@@ -11,13 +15,15 @@ class Drag {
     $( "#draggable1" ).draggable();
   };
 
-  makeKnobDraggable() {
-    $( "#draggable2" ).draggable();
-  }
-
   makeVcoDraggable(){
     $( "#draggablevco" ).draggable();
   }
+
+  makeVcaDraggable(){
+    $( "#draggablevca" ).draggable();
+  }
+
+
 }
 
 module.exports = Drag;

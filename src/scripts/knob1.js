@@ -1,58 +1,69 @@
 // source: https://www.youtube.com/watch?v=C2m4wMfjllA
 
 class Knob {
-  constructor(osc) {
-    this.oscillator = osc;
-    this.knob = document.querySelector(".knob");
+  constructor(oscillator, audioCtx, knobNum){
+    this.osc = oscillator;
+    this.audioCtx = audioCtx;
+    this.knobNum = knobNum || 1;
   }
 
-  volumeKnob(e) {
-    const w = this.knob.clientWidth / 2;
-    const h = this.knob.clientHeight / 2;
-    console.log(h)
-
-    const x = e.clientX - this.knob.offsetLeft;
-    const y = e.clientY - this.knob.offsetTop;
-
-    const dX = w-x;
-    const dY = h-y;
-
-    const rad = Math.atan2(dY, dX);
-
-    let deg = rad * (180 / Math.PI);
-
-    return deg;
-  }
-
-  rotate(e) {
-    const result = Math.floor(this.volumeKnob(e) - 80);
-    // console.log(result);
-    this.knob.style.transform = `rotate(${result}deg)`;
-
-    const ampChange = result/360;
-    console.log(ampChange);
-    // oscillator.frequency = result;
-    return ampChange;
-  }
-
-  startRotation(e) {
-    console.log("in runKnob")
-
-    window.addEventListener("mousemove", this.rotate(this));
-    window.addEventListener("mouseup", this.endRotation());
-    e.stopPropagation();
-  }
-
-  endRotation() {
-    console.log("in runKnob")
-
-    window.removeEventListener("mousemove", this.rotate());
+  translateValues(knobOutput) { //I'm sorry, this actually also updates params
+    this.osc.frequency.setValueAtTime(knobOutput, this.audioCtx.currentTime)
+    return knobOutput + 100;
   }
 
   runKnob() {
-    this.knob.addEventListener("mousedown", this.startRotation());
+    const knob = document.querySelector(`#knob${this.knobNum}`);
+
+    function getKnobValues(e) {
+      const container = document.querySelector('.vco');
+      const w = knob.clientWidth / 2;
+      const h = knob.clientHeight / 2;
+
+      const x = e.clientX - (container.offsetLeft + knob.offsetLeft); //+70
+      const y = e.clientY - (container.offsetTop + knob.offsetTop); //+1s
+
+      const dX = w-x;
+      const dY = h-y;
+
+      const rad = Math.atan2(dY, dX);
+
+      const deg = rad * (180 / Math.PI); //used to be let
+
+      return deg;
+    }
+
+    function rotate(e) {
+      let result = Math.floor(getKnobValues(e) - 80);
+      knob.style.transform = `rotate(${result}deg)`;
+
+      if (result < 0) {
+        result = 360 + result;
+      }
+      result = this.translateValues(result);
+      // this.osc.frequency.setValueAtTime(result, this.audioCtx.currentTime)
+    }
+
+    const that = this;
+    const boundRotate = rotate.bind(this);
+    function startRotation(e) {
+      knob.addEventListener("mousemove", boundRotate);
+      knob.addEventListener("mouseup", endRotation);
+      e.stopPropagation();
+    }
+
+    function endRotation() {
+      knob.removeEventListener("mousemove", boundRotate);
+      knob.removeEventListener("mouseup", endRotation);
+    }
+
+    knob.addEventListener("mousedown", startRotation);
+
   }
 }
 
-module.exports = Knob;
+class freqKnob extends Knob {}
+
+
+module.exports = freqKnob;
 

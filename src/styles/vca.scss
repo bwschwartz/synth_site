@@ -1,0 +1,33 @@
+.vca {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 700px;
+  width: 700px;
+  margin: 100px;
+  border: 1px solid black;
+  flex-flow: row wrap;
+  background-color: black;
+
+}
+
+.vca-io {
+  border: 10px solid black;
+  display: flex;
+  justify-content:center;
+  flex-flow: column wrap;
+  align-items: stretch;
+}
+
+#vca-io{
+  display: flex;
+  background: palegoldenrod;
+  width: 260px;
+  justify-content: center;
+}
+
+.amplitude-knobs{
+  position: relative;
+  background-color:palegoldenrod;
+}
+
