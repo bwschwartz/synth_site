@@ -8,12 +8,6 @@ class Oscillator {
     oscillator.frequency.setValueAtTime(220, audioCtx.currentTime);
     oscillator.connect(audioCtx.destination);
 
-    // document.querySelector('button').addEventListener('click', function() {
-    // oscillator.start();
-    //   })
-
-    console.log(document.querySelector('.second-button'))
-
     document.querySelector(`.button${buttonNum}`).addEventListener('click', function() {
       oscillator.start();
         })

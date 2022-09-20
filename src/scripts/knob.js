@@ -1,13 +1,14 @@
 // source: https://www.youtube.com/watch?v=C2m4wMfjllA
 
 class Knob {
-  constructor(oscillator, audioCtx){
+  constructor(oscillator, audioCtx, knobNum){
     this.osc = oscillator;
     this.audioCtx = audioCtx;
+    this.knobNum = knobNum || 1;
   }
 
   runKnob() {
-    const knob = document.querySelector(".knob");
+    const knob = document.querySelector(`#knob${this.knobNum}`);
 
     function volumeKnob(e) {
       const container = document.querySelector('.module-container');
@@ -37,7 +38,6 @@ class Knob {
 
       this.osc.frequency.setValueAtTime(result, this.audioCtx.currentTime)
       console.log(result)
-      // return result;
     }
 
     const that = this;

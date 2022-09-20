@@ -1,11 +1,6 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-h1 {
-  color: blue;
-  font-size: 100px;
-}
-
 .knob-container::before {
   content: "";
   position: absolute;
@@ -15,6 +10,10 @@ h1 {
   height: 10em;
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.knob-container {
+  margin: 10px;
 }
 
 .knob {
@@ -40,46 +39,27 @@ h1 {
   box-shadow: 0px 0px 10px #ff3886;
 }
 
-.progress {
-  width: 100px;
-  height: 6px;
-  box-shadow: inset -2px -2px #888, inset 2px 2px #111;
-  background: #333;
-  position: relative;
-}
-
-.progress > div {
-  background: #fff;
-  position: a boslute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 50%;
-  box-shadow: 0px 0px 10px #ff3668;
-}
-
-#draggable2 {
-  width: 180px;
-  height: 300px;
-  padding: 0em;
-}
-
-.outer-knob {
-  display: flex;
-  width: 10em;
-  height: 11em;
-  background-color: white;
-}
-
 .module-container {
   display: flex;
   background-color: black;
   height: 500px;
   width: 200px;
-  flex-flow: column wrap;
-  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: bottom;
 }
 
-.module-knob {
-  background-color: blue;
+#draggable2 {
+  width: 180px;
+  height: 800px;
+  padding: 1em;
+}
+
+.vco {
+  display: flex;
+  background: red;
+}
+
+#io {
+  background: white;
 }
