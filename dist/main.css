@@ -109,10 +109,9 @@
   justify-content: space-between;
   height: 700px;
   width: 700px;
-  margin: 100px;
-  border: 1px solid black;
+  margin: 20px;
+  padding: 10px;
   flex-flow: row wrap;
-  background-color: black;
 }
 
 .vca-io {
@@ -133,4 +132,10 @@
 .amplitude-knobs {
   position: relative;
   background-color: palegoldenrod;
+}
+
+#draggablevca {
+  box-sizing: border-box;
+  width: 100px;
+  border-color: white;
 }

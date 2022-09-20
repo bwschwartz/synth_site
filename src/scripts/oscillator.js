@@ -12,7 +12,6 @@ class Oscillator {
       oscillator.start();
         })
 
-
     return oscillator;
     }
 }
