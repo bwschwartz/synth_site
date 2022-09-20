@@ -5,17 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BSynth</title>
     <link rel="stylesheet" href="./dist/main.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
-    <style>
-      #draggable { width: 63px; height: 20x; padding: 0.3em}
-    </style>
-
-    <style>
-      #draggable1 { width: 150px; height: 20x; padding: 0.2em}
-    </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -44,9 +35,10 @@
   </div>
 
 
-<div class="vco">
+<div class="vco ui-widget-content" id="draggablevco">
   <div class="frequency-knobs">
     <div class="module-container" id="draggable2">
+
           <div class="knob-container">
             <div class="knob" id="knob1"></div>
           </div>
@@ -67,15 +59,51 @@
 
   <div id="io">
 
-    <div id="in1"></div>
-    <div id="in2"></div>
-    <div id="in3"></div>
-    <div id="in4"></div>
+    <div class="io">
+      <div class="io-container">
+        <div class="hole" id="in1"></div>
+      </div>
+
+      <div class="io-container">
+        <div class="hole" id="in2"></div>
+      </div>
+
+      <div class="io-container">
+        <div class="hole" id="in3"></div>
+      </div>
+
+      <div class="io-container">
+        <div class="hole" id="in4"></div>
+      </div>
+   </div>
+
+   <div class="io">
+    <div class="io-container">
+      <div class="hole" id="in1"></div>
+    </div>
+
+    <div class="io-container">
+      <div class="hole" id="in2"></div>
+    </div>
+
+    <div class="io-container">
+      <div class="hole" id="in3"></div>
+    </div>
+
+    <div class="io-container">
+      <div class="hole" id="in4"></div>
+    </div>
+ </div>
 
   </div>
 
+   <!-- <div id="out">
+    <div id="out1">output</div>
+    <div id="out2">output</div>
+    <div id="out3">output</div>
+    <div id="out4">output</div>
+ </div> -->
 
-</div>
 
 
 

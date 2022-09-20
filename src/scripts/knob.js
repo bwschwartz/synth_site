@@ -11,7 +11,7 @@ class Knob {
     const knob = document.querySelector(`#knob${this.knobNum}`);
 
     function volumeKnob(e) {
-      const container = document.querySelector('.module-container');
+      const container = document.querySelector('.vco');
       const w = knob.clientWidth / 2;
       const h = knob.clientHeight / 2;
 

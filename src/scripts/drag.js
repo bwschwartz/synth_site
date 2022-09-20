@@ -1,7 +1,7 @@
 class Drag {
 
   init() {
-    
+
   }
   makeDraggable() {
     $( "#draggable" ).draggable();
@@ -13,6 +13,10 @@ class Drag {
 
   makeKnobDraggable() {
     $( "#draggable2" ).draggable();
+  }
+
+  makeVcoDraggable(){
+    $( "#draggablevco" ).draggable();
   }
 }
 

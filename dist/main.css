@@ -1,6 +1,18 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+#draggable {
+  width: 63px;
+  height: 20x;
+  padding: 0.3em;
+}
+
+#draggable1 {
+  width: 150px;
+  height: 20x;
+  padding: 0.2em;
+}
+
 .knob-container::before {
   content: "";
   position: absolute;
@@ -30,23 +42,22 @@
 }
 
 .knob::before {
+  border-radius: 0%;
   top: 0px;
   left: 50%;
   transform: tranlsateX(50%);
   width: 4px;
   height: 75px;
-  background: #fff;
+  background: lemonchiffon;
   box-shadow: 0px 0px 10px #ff3886;
 }
 
 .module-container {
   display: flex;
-  background-color: black;
+  background-color: palegoldenrod;
   height: 500px;
   width: 200px;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: bottom;
 }
 
 #draggable2 {
@@ -58,8 +69,37 @@
 .vco {
   display: flex;
   background: red;
+  width: 420px;
+}
+
+.io {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100px;
+  background: palegoldenrod;
+  justify-content: center;
 }
 
 #io {
-  background: white;
+  display: flex;
+  background: palegoldenrod;
+  width: 220px;
+}
+
+.io-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.hole {
+  background-color: rgb(157, 153, 153);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
 }

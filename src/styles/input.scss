@@ -1,0 +1,39 @@
+.vco {
+  display: flex;
+  background: red;
+  width: 420px;
+}
+
+.io {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100px;
+  background: palegoldenrod;
+  justify-content: center;
+}
+
+#io {
+  display: flex;
+  background: palegoldenrod;
+  width: 220px;
+  // justify-content: center;
+}
+
+.io-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.hole {
+  background-color: rgb(157, 153, 153);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
