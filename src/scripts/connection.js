@@ -13,8 +13,8 @@ class Connection {
     // const testOut = document.querySelector(`#sin-out1`);
     // testOut.addEventListener('mousedown', this.sendParams.bind(this));
 
-    const testIn  = document.querySelector(`#amp-in1`)
-    testIn.addEventListener('mousedown', this.receiveParams.bind(this))
+    // const testIn  = document.querySelector(`#amp-in1`)
+    // testIn.addEventListener('mousedown', this.receiveParams.bind(this))
 
     this.setUpEventListeners();
   }
@@ -28,7 +28,17 @@ class Connection {
     document.querySelector(`#sqr-out1`).addEventListener('mousedown', this.sendParams.bind(this));
     document.querySelector(`#sqr-out2`).addEventListener('mousedown', this.sendParams.bind(this));
     document.querySelector(`#sqr-out3`).addEventListener('mousedown', this.sendParams.bind(this));
-    document.querySelector(`#sqr-out3`).addEventListener('mousedown', this.sendParams.bind(this));
+    document.querySelector(`#sqr-out4`).addEventListener('mousedown', this.sendParams.bind(this));
+
+
+    document.querySelector(`#amp-in1`).addEventListener('mousedown', this.receiveParams.bind(this));
+    document.querySelector(`#amp-in2`).addEventListener('mousedown', this.receiveParams.bind(this));
+    // document.querySelector(`#amp-in3`).addEventListener('mousedown', this.receiveParams.bind(this));
+    // document.querySelector(`#amp-in4`).addEventListener('mousedown', this.receiveParams.bind(this));
+
+
+
+
   }
 
   sendParams(e) {
