@@ -109,6 +109,11 @@ body {
   border-radius: 50%;
 }
 
+.hole:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
 .vca {
   display: flex;
   align-items: stretch;

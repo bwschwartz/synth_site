@@ -56,12 +56,10 @@ document.addEventListener("DOMContentLoaded", () =>{
   const ampKnobArray = [ampknob1, ampknob2, ampknob3, ampknob4];
 
 
-
-
   ampknob1.runKnob();
-  // ampknob2.runKnob();
-  // ampknob3.runKnob();
-  // ampknob4.runKnob();
+  ampknob2.runKnob();
+  ampknob3.runKnob();
+  ampknob4.runKnob();
 
 
   // const input = new Input(1);

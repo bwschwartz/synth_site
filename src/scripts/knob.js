@@ -25,15 +25,23 @@ class Knob {
     const w = this.knob.clientWidth / 2;
     const h = this.knob.clientHeight / 2;
 
-    const x = e.clientX - (container.offsetLeft + this.knob.offsetLeft); //+70
-    const y = e.clientY - (container.offsetTop + this.knob.offsetTop); //+1s
+    let x;
 
+    if (this.amp === '') {
+       x = e.pageX - (container.offsetLeft + this.knob.offsetLeft);
+    } else {
+       x = e.pageX - (container.offsetLeft + this.knob.offsetLeft + 45);
+    }
+
+    const y = e.pageY - (container.offsetTop + this.knob.offsetTop);
+    console.log(`container left, y: ${container.offsetTop},  ${y} `)
+    // debugger;
     const dX = w-x;
     const dY = h-y;
 
     const rad = Math.atan2(dY, dX);
 
-    const deg = rad * (180 / Math.PI);
+    const deg = rad * (180 / Math.PI); // deeply embarassing
 
     return deg;
   }
@@ -77,9 +85,17 @@ export class ampKnob extends Knob {
     this.gainNode = gain;
   }
 
-  updateOscillator(osc){
+  updateOscillator(osc, waveform){
+    this.osc.disconnect();
     this.osc = osc;
     this.osc.disconnect();
+
+    if (waveform === 'sqr') {
+      this.osc.type = 'square';
+    } else {
+      this.osc.type = 'sine';
+    };
+
     osc.connect(this.gainNode).connect(this.audioCtx.destination)
   }
 
