@@ -7,10 +7,9 @@ class Knob {
     this.knobNum = knobNum || 1;
     this.amp = amp || '';
     this.knob = document.querySelector(`#${this.amp}knob${this.knobNum}`);
-
   }
 
-  translateValues(knobOutput) { //I'm beyond sorry, this actually also updates params
+  translateValues(knobOutput) { //I'm beyond sorry, this actually also updates params!
     this.osc.frequency.setValueAtTime(knobOutput, this.audioCtx.currentTime)
   }
 
@@ -26,7 +25,6 @@ class Knob {
     const h = this.knob.clientHeight / 2;
 
     let x;
-
     if (this.amp === '') {
        x = e.pageX - (container.offsetLeft + this.knob.offsetLeft);
     } else {
@@ -100,7 +98,7 @@ export class ampKnob extends Knob {
   }
 
 
-  translateValues(knobOutput) { //I'm so sorry, this poorly named func actually also updates params
+  translateValues(knobOutput) { //I'm so sorry, this poorly named func actually also updates params!
     const amplitude = knobOutput / 360.0
     this.gainNode.gain.exponentialRampToValueAtTime(amplitude, this.audioCtx.currentTime +.1); //avoids clicks :0
     return amplitude;

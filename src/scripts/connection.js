@@ -6,6 +6,7 @@ class Connection {
     this.sender = null;
     this.receiver = null;
     this.ampKnobArray = ampKnobArray;
+    this.color = null;
   }
 
   init() {
@@ -38,6 +39,9 @@ class Connection {
       oscNum: this.sender.slice(this.sender.length-1) - 1
     };
     this.sender = null;
+    this.color = 'blue';
+
+    document.querySelector(`#${e.target.id}`).style.backgroundColor = 'black';
   }
 
   receiveParams(e) {
@@ -53,6 +57,8 @@ class Connection {
       ampKnob.updateOscillator(osc, this.params['waveform']);
 
       this.params = null;
+
+      document.querySelector(`#${e.target.id}`).style.backgroundColor = 'black';
 
     }
   }
