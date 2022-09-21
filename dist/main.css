@@ -13,6 +13,12 @@
   padding: 0.2em;
 }
 
+body {
+  background-color: aliceblue;
+  display: flex;
+  align-items: stretch;
+}
+
 .knob-container::before {
   content: "";
   position: absolute;
@@ -111,7 +117,6 @@
   width: 700px;
   margin: 20px;
   padding: 10px;
-  flex-flow: row wrap;
 }
 
 .vca-io {
@@ -138,4 +143,8 @@
   box-sizing: border-box;
   width: 100px;
   border-color: white;
+}
+
+.temp-buttons {
+  padding: 10%;
 }

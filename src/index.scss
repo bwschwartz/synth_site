@@ -2,6 +2,13 @@
 #draggable1 { width: 150px; height: 20x; padding: 0.2em}
 
 
+body {
+  background-color:aliceblue;
+  display: flex;
+  align-items: stretch;
+  // justify-content: space-between;
+}
+
 .knob-container::before {
   content: '';
   position: absolute;
