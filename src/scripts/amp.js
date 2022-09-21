@@ -1,11 +1,10 @@
 class Amplitude {
-  constructor (){
-    console.log("hi")
-  // const input1 = document.querySelector('.input');
+  constructor (osc, audioCtx){
+    const gainNode = audioCtx.createGain();
+    osc.disconnect();
+    osc.connect(gainNode).connect(audioCtx.destination)
+    return gainNode;
   }
-
-  // const input1 = document.querySelector('.input');
-
 
 }
 

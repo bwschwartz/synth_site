@@ -13,9 +13,9 @@ const audioCtx = context.makeContext()
 
 // const Knob = require('./scripts/knob1')
 // const knob = new freqKnob;
-import {freqKnob, ampKnob} from './scripts/knob1';
+import {freqKnob, ampKnob} from './scripts/knob';
 
-const Amplitude = require('./scripts/amp');
+const Gain = require('./scripts/amp');
 
 document.addEventListener("DOMContentLoaded", () =>{
 
@@ -37,16 +37,20 @@ document.addEventListener("DOMContentLoaded", () =>{
   freqknob3.runKnob();
   freqknob4.runKnob();
 
-  const ampknob1 = new ampKnob(osc1, audioCtx, 1, 'amp');
-  const ampknob2 = new ampKnob(osc1, audioCtx, 2, 'amp');
-  const ampknob3 = new ampKnob(osc1, audioCtx, 3, 'amp');
-  const ampknob4 = new ampKnob(osc1, audioCtx, 4, 'amp');
+
+  const gain = new Gain(osc1, audioCtx);
+  console.log(gain)
+
+  const ampknob1 = new ampKnob(osc1, audioCtx, 1, 'amp', gain);
+  // const ampknob2 = new ampKnob(osc2, audioCtx, 2, 'amp');
+  // const ampknob3 = new ampKnob(osc3, audioCtx, 3, 'amp');
+  // const ampknob4 = new ampKnob(osc4, audioCtx, 4, 'amp');
 
 
   ampknob1.runKnob();
-  ampknob2.runKnob();
-  ampknob3.runKnob();
-  ampknob4.runKnob();
+  // ampknob2.runKnob();
+  // ampknob3.runKnob();
+  // ampknob4.runKnob();
 
 
 
