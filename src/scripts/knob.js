@@ -7,12 +7,11 @@ class Knob {
     this.knobNum = knobNum || 1;
     this.amp = amp || '';
     this.knob = document.querySelector(`#${this.amp}knob${this.knobNum}`);
+
   }
 
-  translateValues(knobOutput) { //I'm sorry, this actually also updates params
+  translateValues(knobOutput) { //I'm beyond sorry, this actually also updates params
     this.osc.frequency.setValueAtTime(knobOutput, this.audioCtx.currentTime)
-    console.log(knobOutput)
-    return knobOutput + 100;
   }
 
   getContainer() {
@@ -21,7 +20,6 @@ class Knob {
 
   getKnobValues(e) {
 
-      // const container = document.querySelector('.vca');
     const container = this.getContainer();
 
     const w = this.knob.clientWidth / 2;
@@ -35,7 +33,7 @@ class Knob {
 
     const rad = Math.atan2(dY, dX);
 
-    const deg = rad * (180 / Math.PI); //used to be let
+    const deg = rad * (180 / Math.PI);
 
     return deg;
   }
@@ -51,11 +49,10 @@ class Knob {
         result = 360 + result;
       }
       result = this.translateValues(result);
-      // this.osc.frequency.setValueAtTime(result, this.audioCtx.currentTime)
     }
 
-    const that = this;
     const boundRotate = rotate.bind(this);
+
     function startRotation(e) {
       knob.addEventListener("mousemove", boundRotate);
       knob.addEventListener("mouseup", endRotation);
@@ -80,14 +77,16 @@ export class ampKnob extends Knob {
     this.gainNode = gain;
   }
 
+  updateOscillator(osc){
+    this.osc = osc;
+    this.osc.disconnect();
+    osc.connect(this.gainNode).connect(this.audioCtx.destination)
+  }
 
-  translateValues(knobOutput) { //I'm sorry, this actually also updates params
+
+  translateValues(knobOutput) { //I'm so sorry, this poorly named func actually also updates params
     const amplitude = knobOutput / 360.0
-    console.log(this.gainNode);
-    this.gainNode.gain.value = amplitude;
-
-    // this.osc.frequency.setValueAtTime(knobOutput, this.audioCtx.currentTime)
-
+    this.gainNode.gain.exponentialRampToValueAtTime(amplitude, this.audioCtx.currentTime +.1); //avoids clicks :0
     return amplitude;
   }
 
@@ -95,7 +94,3 @@ export class ampKnob extends Knob {
     return document.querySelector('.vca');
   }
 }
-
-
-
-

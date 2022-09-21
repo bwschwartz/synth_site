@@ -11,21 +11,25 @@ const Context = require('./scripts/context')
 const context = new Context;
 const audioCtx = context.makeContext()
 
-// const Knob = require('./scripts/knob1')
-// const knob = new freqKnob;
-import {freqKnob, ampKnob} from './scripts/knob';
 
 const Gain = require('./scripts/amp');
 
+const Input = require('./scripts/input');
+
+const Connection = require('./scripts/connection')
+
+import {freqKnob, ampKnob} from './scripts/knob';
+
 document.addEventListener("DOMContentLoaded", () =>{
+  drag.init();
 
 
-  osc1 = osc1.init(audioCtx, 1); //is this kosher
+  osc1 = osc1.init(audioCtx, 1);
   osc2 = osc2.init(audioCtx, 2);
   osc3 = osc3.init(audioCtx, 3);
   osc4 = osc4.init(audioCtx, 4);
-  drag.init();
 
+  const oscArray = [osc1, osc2, osc3, osc4]
 
   const freqknob1 = new freqKnob(osc1, audioCtx, 1);
   const freqknob2 = new freqKnob(osc2, audioCtx, 2);
@@ -38,13 +42,20 @@ document.addEventListener("DOMContentLoaded", () =>{
   freqknob4.runKnob();
 
 
-  const gain = new Gain(osc1, audioCtx);
-  console.log(gain)
+  const gain1 = new Gain(osc1, audioCtx);
+  const gain2 = new Gain(osc2, audioCtx);
+  const gain3 = new Gain(osc3, audioCtx);
+  const gain4 = new Gain(osc4, audioCtx);
 
-  const ampknob1 = new ampKnob(osc1, audioCtx, 1, 'amp', gain);
-  // const ampknob2 = new ampKnob(osc2, audioCtx, 2, 'amp');
-  // const ampknob3 = new ampKnob(osc3, audioCtx, 3, 'amp');
-  // const ampknob4 = new ampKnob(osc4, audioCtx, 4, 'amp');
+
+  const ampknob1 = new ampKnob(osc1, audioCtx, 1, 'amp', gain1);
+  const ampknob2 = new ampKnob(osc2, audioCtx, 2, 'amp', gain2);
+  const ampknob3 = new ampKnob(osc3, audioCtx, 3, 'amp', gain3);
+  const ampknob4 = new ampKnob(osc4, audioCtx, 4, 'amp', gain4);
+
+  const ampKnobArray = [ampknob1, ampknob2, ampknob3, ampknob4];
+
+
 
 
   ampknob1.runKnob();
@@ -53,5 +64,18 @@ document.addEventListener("DOMContentLoaded", () =>{
   // ampknob4.runKnob();
 
 
+  // const input = new Input(1);
+  // input.activateInput();
+
+
+  const connection  = new Connection(audioCtx, oscArray, ampKnobArray);
+  connection.init();
+
+
+
+
+
+  //on clicking VCO output: make an object wtih oscillator number and wave type
+  //on clicking down on output: change waveform to correct type; initialize gain and tie ti to
 
 });
