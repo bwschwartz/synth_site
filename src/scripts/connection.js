@@ -7,7 +7,7 @@ class Connection {
     this.sender = null;
     this.receiver = null;
     this.color = null;
-    this.colors = ['cornsilk', 'paleogoldenrod', 'aliceblue', 'firebrick', 'azure', 'bisque'];
+    this.colors = ['cornsilk', 'paleogoldenrod', 'aliceblue', 'firebrick', 'azure', 'bisque', 'burlywood', 'darkseagreen'];
   }
 
   init() {
