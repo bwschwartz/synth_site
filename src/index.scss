@@ -1,5 +1,6 @@
-#draggable { width: 63px; height: 20x; padding: 0.3em}
-#draggable1 { width: 150px; height: 20x; padding: 0.2em}
+#draggable {
+  width: 63px;
+}
 
 
 body {
@@ -12,12 +13,11 @@ body {
 .knob-container::before {
   content: '';
   position: absolute;
-  background-color: blue;
   background: linear-gradient(#e66465, #9198e5);
   width: 10em;
   height: 10em;
   border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); //from tutorial -->
 }
 .knob-container{
   margin: 10px;
@@ -27,9 +27,6 @@ body {
   width: 10em;
   height: 10em;
   position: relative;
-  // border: .1em solid lemonchiffon;
-  // border-radius: 50%;
-
 }
 
 .knob::before,
@@ -47,7 +44,7 @@ body {
   width: 4px;
   height: 75px;
   background: lemonchiffon;
-  box-shadow: 0px 0px 10px #ff3886;
+  box-shadow: 0px 0px 10px #ff3886;  //from tutorial
 }
 
 .module-container{
@@ -56,16 +53,18 @@ body {
   height: 500px;
   width: 200px;
   flex-flow: row wrap;
-  // justify-content: space-between;
-  // align-items: bottom;
 }
 
 #draggable2 {
   width: 180px;
   height: 800px;
   padding:1em;
+
 }
 
+.ui-widget-content{
+  border: 4 px black;
+}
 
 @import './styles/input.scss', './styles/vca.scss';
 
