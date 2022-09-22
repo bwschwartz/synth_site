@@ -46,6 +46,10 @@ function Circle(x, y, r) {
   // this.h = h;
   World.add(world, this.body);
 
+  this.remove = function() {
+    World.remove(world, this.body);
+  }
+
 
   this.show = function() {
     let pos = this.body.position;
