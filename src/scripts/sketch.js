@@ -1,3 +1,5 @@
+//source: https://www.youtube.com/watch?v=urR596FsU68 The Coding Train
+
 const Engine = Matter.Engine,
   // Render = Matter.Render,
   World = Matter.World,
@@ -20,7 +22,7 @@ function setup() {
   engine = Engine.create();
   world = engine.world;
   // testBox = Bodies.rectangle(200, 100, 80, 80);
-  testBox = new Box(200, 100, 80, 80);
+  testBox = new Circle(200, 100, 80);
   Matter.Runner.run(engine);
   World.add(world, testBox); //remove global variable
 
@@ -38,10 +40,10 @@ function mousePressed() {
   boxes.push(Bodies.rectangle(200, 100, 80, 80));
 }
 
-function Box(x, y, w, h) {
-  this.body = Bodies.rectangle(x,y, w, h);
-  this.w  = w;
-  this.h = h;
+function Circle(x, y, r) {
+  this.body = Bodies.circle(x,y, r);
+  // this.w  = w;
+  // this.h = h;
   World.add(world, this.body);
 
 
@@ -53,7 +55,7 @@ function Box(x, y, w, h) {
     translate(pos.x, pos.y);
     rotate(angle);
     rectMode(CENTER);
-    rect(0, 0, this.w, this.h);
+    ellipse(0, 0, r);
     pop();
   }
 }
