@@ -1,22 +1,27 @@
-const Oscillator = require('./scripts/oscillator')
+// const Chord = require('./scripts/chord');
+
+
+// import {setup, draw} from './scripts/chord';
+
+const Oscillator = require('./scripts/oscillator');
 let osc1 = new Oscillator;
 let osc2 = new Oscillator;
 let osc3 = new Oscillator;
 let osc4 = new Oscillator;
 
-const Drag = require('./scripts/drag')
+const Drag = require('./scripts/drag');
 const drag = new Drag;
 
-const Context = require('./scripts/context')
+const Context = require('./scripts/context');
 const context = new Context;
-const audioCtx = context.makeContext()
+const audioCtx = context.makeContext();
 
 
 const Gain = require('./scripts/amp');
 
 const Input = require('./scripts/input');
 
-const Connection = require('./scripts/connection')
+const Connection = require('./scripts/connection');
 
 import {freqKnob, ampKnob} from './scripts/knob';
 
