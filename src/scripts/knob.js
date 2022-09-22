@@ -32,8 +32,7 @@ class Knob {
     }
 
     const y = e.pageY - (container.offsetTop + this.knob.offsetTop);
-    console.log(`container left, y: ${container.offsetTop},  ${y} `)
-    // debugger;
+
     const dX = w-x;
     const dY = h-y;
 
@@ -85,6 +84,7 @@ export class ampKnob extends Knob {
 
   updateOscillator(osc, waveform){
     this.osc.disconnect();
+
     this.osc = osc;
     this.osc.disconnect();
 

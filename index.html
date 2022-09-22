@@ -11,6 +11,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
+
+    <!-- <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="sketch.js"></script> -->
+
     <script type="text/javascript" src="../dist/main.js"></script>
 
     <title>WebSynth</title>
@@ -18,7 +23,7 @@
   </head>
 
 <body>
-
+<!-- <div id="outer-container"> -->
 
 <!-- VCO -->
 <div class="vco ui-widget-content" id="draggablevco">
@@ -85,22 +90,8 @@
 </div>
 <!-- VCO -->
 
-<div class ="temp-buttons">
-  <div id="draggable3" class="button1" class="ui-widget-content">
-    <button>play 1</button>
-  </div>
-
-  <div id="draggable" class="ui-widget-content button2">
-    <button>play 2</button>
-  </div>
-
-  <div id="draggable" class="ui-widget-content button3">
-    <button>play 3</button>
-  </div>
-
-  <div id="draggable" class="ui-widget-content button4">
-    <button>play 4</button>
-  </div>
+<div class ="temp-buttons start-button ui-widget-content" id="draggable">
+    <button id="start-button">Turn! On!</button>
 </div>
 
 
@@ -175,7 +166,7 @@
 </div>
 
 
-
+<!-- </div> -->
 </body>
 
 </html>

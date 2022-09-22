@@ -1,14 +1,29 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-#draggable {
-  width: 63px;
+h1 {
+  width: 100%;
+  position: relative;
 }
 
 body {
   background-color: aliceblue;
   display: flex;
   align-items: stretch;
+}
+
+.start-button {
+  display: inline-block;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.outer-container {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100px;
 }
 
 .knob-container::before {
@@ -125,7 +140,6 @@ body {
 }
 
 .vca-io {
-  border: 10px solid black;
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
@@ -151,5 +165,14 @@ body {
 }
 
 .temp-buttons {
-  padding: 10%;
+  margin: 10%;
+  width: 58px;
+  height: 70px;
+}
+
+#start-button {
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }

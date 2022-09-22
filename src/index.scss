@@ -1,7 +1,7 @@
-#draggable {
-  width: 63px;
+h1 {
+  width: 100%;
+  position: relative;
 }
-
 
 body {
   background-color:aliceblue;
@@ -9,6 +9,23 @@ body {
   align-items: stretch;
   // justify-content: space-between;
 }
+
+.start-button {
+  display: inline-block;
+  // height:100px;
+  // width: 100px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.outer-container {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100px;
+}
+
 
 .knob-container::before {
   content: '';
@@ -64,6 +81,12 @@ body {
 
 .ui-widget-content{
   border: 4 px black;
+}
+
+
+
+#vca{
+  // border: 10px solid springgreen;
 }
 
 @import './styles/input.scss', './styles/vca.scss';
