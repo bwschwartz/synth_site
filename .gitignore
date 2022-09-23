@@ -1,2 +1,9 @@
 node_modules/
 .DS_Store
+
+
+.env
+main.js
+main.js.map
+main.css
+main.css.map

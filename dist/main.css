@@ -130,6 +130,10 @@ body {
   border: 4px solid black;
 }
 
+#forward {
+  z-index: 1;
+}
+
 .vca {
   display: flex;
   align-items: stretch;

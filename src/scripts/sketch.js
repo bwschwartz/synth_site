@@ -1,25 +1,24 @@
 //source: https://www.youtube.com/watch?v=urR596FsU68 "The Coding Train"
 
 const Engine = Matter.Engine,
-  // Render = Matter.Render,
   World = Matter.World,
   Bodies = Matter.Bodies,
-  Constraint = Matter.Constraint;
+  Constraint = Matter.Constraint,
+  Mouse = Matter.Mouse,
+  MouseConstraint = Matter.MouseConstraint;
 
-let canvas, engine, world, testBox;
+let canvas, engine, world, mouseConstraint;
+let particles = []
+let c;
 
-let boxes = [];
-
-function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
-}
-
-let particles = [];
+window.particles = particles;
 
 function setup() {
+  c = color('rgba(0, 0, 255, 0)');
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0);
   canvas.style('z-index', '-1');
+  // canvas.background('rgba(0,255,0, 0.25)')
 
   engine = Engine.create();
   world = engine.world;
@@ -28,47 +27,55 @@ function setup() {
   let isFixed = false;
   let prev = null;
 
-  for (let x = 500; x < 1000; x+=40){
+  const position = 1500
+
+  for (let x = position; x < position +100; x+=10){
     let isFixed = false;
 
     if (!prev){
       isFixed = true;
     }
 
-    const p = new Particle(x, 100, 10, isFixed);
+    const p = new Particle(x, 300, 30, isFixed);
+    // debugger;
     particles.push(p);
-
 
     if (prev){
       const constraintOptions = {
       bodyA: p.body,
       bodyB: prev.body,
-      length: 50,
-      stiffness: .4
+      length: 100,
+      stiffness: 1.0
     }
 
     const constraint = Constraint.create(constraintOptions)
     World.add(world, constraint)
     }
-
     prev = p;
-
-  }
-
-  // const p2 = new Particle(150, 150, 100, isFixed);
+    }
 
 
+    const mouse = Mouse.create( canvas.elt );
+    mouse.pixelRatio = pixelDensity();
 
+    const mConstraintOptions = {
+      mouse: mouse
+    }
+    const mConstraint = MouseConstraint.create(engine,mConstraintOptions)
 
-  // particles.push(p1);
-  // particles.push(p2);
+    World.add(world, mConstraint)
   }
 
 
 function draw() {
-  background('transparent');
+  // background('black');
+  // background(c);
+  background('rgba(10,10,100, 1)');
+
+  // background('yellow');
   for (i=0; i<particles.length; i++){
     particles[i].show();
+
   }
 
 }
@@ -76,7 +83,7 @@ function draw() {
 function Particle(x, y, r, isFixed) {
   let particleOptions = {
     friction: 0,
-    restitution: 0.95,
+    restitution: .2,
     isStatic: isFixed
   }
 
@@ -102,8 +109,13 @@ function Particle(x, y, r, isFixed) {
   }
 }
 
+function mouseDown(e) {
+  console.log("mouse down")
+  // e.stopPropagation();
+}
 
 
-function mousePressed() {
-  boxes.push(Bodies.rectangle(200, 100, 80, 80));
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
 }

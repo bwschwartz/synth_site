@@ -1,8 +1,3 @@
-// const Chord = require('./scripts/chord');
-
-
-// import {setup, draw} from './scripts/chord';
-
 const Oscillator = require('./scripts/oscillator');
 let osc1 = new Oscillator;
 let osc2 = new Oscillator;
