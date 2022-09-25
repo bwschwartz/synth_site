@@ -1,18 +1,25 @@
 # synth_site
-in browser modular synth 
+Welcome to SynthSite, an in-browser semi-module synth emulator!
+
+The larger module represents a VCO or "voltage controlled oscillator": a tone generator. The righthand outputs are square waves, the lefthand, sine waves. Note that square waves sound significantly louder than sine waves. The knobs control frequency in the range 0-360 Hz.
+
+The second module represents a VCA, or voltage controlled amplifier to control volume. The "Turn! On!" knob must be pushed to begin generating sound.
+
+The setup is semi-modular in the sense that there are initially "hardwired" connections between the the VCO and the VCA (corresponding to vertical order. To repatch the configuration, click an output on the VCO, followed by an input on the VCA. They should turn the same gorgeous pastel to indicate they're patched together.
+
+The picture below shows connections between the first oscillator and 3rd amplifier, and vice versa. A protopye of the patch cord dangles meakly beneath the "Turn! On!" button, patiently awaiting a more complete implementation.
+
+<img width="644" alt="Screen Shot 2022-09-22 at 3 54 20 PM" src="https://user-images.githubusercontent.com/102887694/191839096-73fd5893-64b4-444a-b267-9bca30904bea.png">
+
+The Web Audio API implements all sonic functionality under the hood. The JQUERY UI implements drag and drop-ability for the modules. Matter.js will also be used to implement physcically realistic patch cords at a future date.
 
 
-The goal is to present a few synthesizer modules that connect together through physically realistic patch cables. There should be at least: an  oscillator bank, a mixer and two speakers. Additional features will be a filter bank based on the filters implemented in the Pydub library, a step sequencewr and physically realistic panning based on drag and drop-able speaker icons.
+Future work will include:
+-A filter bank module
+-Two speaker objects that control panning through user interaction
+-A reddesign with an emphasis on realism.
 
 
-Functionaliy and MVPS
+Modularity is implemeneted by two functions, send and receive, in the "Connection" class.
 
-1) Ability to emulate a basic modular synth setup in the browser with VCO and VCA
-2) Physically realistic patch chords
-
-In Addition, this project will include
-1) Drag and drop-able skeumorphic icons
-2) A filter bank
-3) A step sequencer outputting frequency values
-
-![screen_shot_2022-09-15_at_10 05 32_pm](https://user-images.githubusercontent.com/102887694/191012417-a9c8e2dc-e3c7-41d8-ab17-e8da0816e7f0.png)
+<img width="751" alt="Screen Shot 2022-09-22 at 7 17 06 PM" src="https://user-images.githubusercontent.com/102887694/191868151-db982d6d-f871-493a-af44-be3c5ae1e52a.png">

@@ -8,17 +8,19 @@ const Engine = Matter.Engine,
   MouseConstraint = Matter.MouseConstraint;
 
 let canvas, engine, world, mouseConstraint;
-let particles = []
+let particles = [];
 let c;
 
 window.particles = particles;
 
 function setup() {
-  c = color('rgba(0, 0, 255, 0)');
+  // c = color('rgba(0, 0, 255, 1)'); //blue
+  // canvas.background('rgba(0,255,0, 0.25)')
+
+
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0);
-  canvas.style('z-index', '-1');
-  // canvas.background('rgba(0,255,0, 0.25)')
+  canvas.style('z-index', '1');
 
   engine = Engine.create();
   world = engine.world;
@@ -68,16 +70,16 @@ function setup() {
 
 
 function draw() {
-  // background('black');
-  // background(c);
-  background('rgba(10,10,100, 1)');
+  // background(c); //blue
+  // background('rgba(10,10,100, 0)'); // effect
+  background('rgba(10,10,100, 0)'); // effect
+
 
   // background('yellow');
   for (i=0; i<particles.length; i++){
     particles[i].show();
 
   }
-
 }
 
 function Particle(x, y, r, isFixed) {

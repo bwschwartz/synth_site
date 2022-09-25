@@ -3,9 +3,9 @@ class Connection {
     this.audioCtx = audioCtx;
     this.oscArray = oscArray;
     this.ampKnobArray = ampKnobArray;
-    this.params = null;
     this.sender = null;
     this.receiver = null;
+    this.params = null;
     this.color = null;
     this.colors = ['cornsilk', 'paleogoldenrod', 'aliceblue', 'firebrick', 'azure', 'bisque', 'burlywood', 'darkseagreen'];
   }
