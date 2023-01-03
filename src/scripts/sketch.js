@@ -131,10 +131,16 @@ function mousePressed(e) {
   }
 
   if (e.target.classList[0] === "hole" && e.target.classList[1] !== "input") {
+
+
+    //destroy hanging connection if there is one
+    if (particles[particles.length-1] && particles[particles.length-1].body.isStatic !== true){
+      particles = particles.slice(0, -10)
+    }
+
+
     let isFixed = false;
     let prev = null;
-
-
     const  xPos = e.clientX;
     const yPos = e.clientY;
 
