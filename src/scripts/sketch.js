@@ -1,7 +1,8 @@
 //source: https://www.youtube.com/watch?v=urR596FsU68 "The Coding Train"
 
 const Engine = Matter.Engine,
-  World = Matter.World,
+  World = Matter.Composite,
+  // World = Matter.World,
   Bodies = Matter.Bodies,
   Constraint = Matter.Constraint,
   Mouse = Matter.Mouse,
@@ -23,38 +24,13 @@ function setup() {
   canvas.style('z-index', '-1');
 
   engine = Engine.create();
+  engine.enableSleeping = true;
   world = engine.world;
   Matter.Runner.run(engine);
 
   let isFixed = false;
   let prev = null;
 
-  // const position = 1500
-
-  // for (let x = position; x < position +100; x+=10){
-  //   let isFixed = false;
-
-  //   if (!prev){
-  //     isFixed = true;
-  //   }
-
-  //   const p = new Particle(x, 300, 30, isFixed);
-  //   // debugger;
-  //   particles.push(p);
-
-  //   if (prev){
-  //     const constraintOptions = {
-  //     bodyA: p.body,
-  //     bodyB: prev.body,
-  //     length: 100,
-  //     stiffness: 1.0
-  //   }
-
-  //   const constraint = Constraint.create(constraintOptions)
-  //   World.add(world, constraint)
-  //   }
-  //   prev = p;
-  //   }
 
 
     const mouse = Mouse.create( canvas.elt );
@@ -82,9 +58,13 @@ function draw() {
 
 function Particle(x, y, r, isFixed, hole, end) {
   let particleOptions = {
-    friction: 0,
-    restitution: .2,
-    isStatic: isFixed
+    friction: .1,
+    frictionStatic: 100,
+    restitution: 0,
+    density: .001,
+    isStatic: isFixed,
+    chamfer: 0,
+    collisionFilter: -1
   }
 
   this.body = Bodies.circle(x,y, r, particleOptions);
@@ -112,10 +92,12 @@ function Particle(x, y, r, isFixed, hole, end) {
 }
 
 const turnOffOsc = (osc) => {
-  
+
 }
 
+
 const removeCable = (holeId) => {
+  // console.log("remove cable is firing")
   document.querySelector(`#${holeId}`).classList.remove('active')
   document.querySelector(`#${holeId}`).style.backgroundColor = 'black'
 
@@ -141,15 +123,20 @@ const getNeighborOutput = (id) => {
   const otherId = otherWave + '-' + osc;
   return document.querySelector(`#${otherId}`)
 }
+Matter.Sleeping._motionWakeThreshold = 1;
+Matter.Sleeping._motionSleepThreshold = 1;
+Matter.Sleeping._minBias = 0;
 
 function mousePressed(e) {
 
   if (particles[0] && e.target.classList[1] === "input") {
-    particles[particles.length-1].body.position.x = e.clientX
-    particles[particles.length-1].body.position.y = e.clientY
+    particles[particles.length-1].body.position.x = e.clientX;
+    particles[particles.length-1].body.position.y = e.clientY;
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
-    document.querySelector(`#${e.target.id}`).getBoundingClientRect().x
+    // document.querySelector(`#${e.target.id}`).getBoundingClientRect().x
+    // console.log(particles)
+    return
   }
 
   if (e.target.classList[0] === "hole" && e.target.classList[1] !== "input") {
@@ -159,14 +146,12 @@ function mousePressed(e) {
       removeCable(e.target.id)
       return
     }
-
     const neighborOutput = getNeighborOutput(e.target.id)
-
     if (neighborOutput.classList[1] === "active"){
       removeCable(neighborOutput.id)
       return
     }
-    console.log("neighborOutput is", neighborOutput)
+
 
 
 
@@ -198,8 +183,12 @@ function mousePressed(e) {
         const constraintOptions = {
         bodyA: p.body,
         bodyB: prev.body,
-        length: 100,
-        stiffness: 0.4
+        length: .00001,
+        stiffness: .1,
+        damping: 0,
+        render: {
+          visible: false
+        }
       }
 
       const constraint = Constraint.create(constraintOptions)

@@ -83,7 +83,7 @@ export class ampKnob extends Knob {
   }
 
   updateOscillator(osc, waveform){
-    this.osc.disconnect();
+    // this.osc.disconnect();
 
     this.osc = osc;
     this.osc.disconnect();
@@ -93,12 +93,13 @@ export class ampKnob extends Knob {
     } else {
       this.osc.type = 'sine';
     };
+    console.log("in update oscillator", osc)
 
     osc.connect(this.gainNode).connect(this.audioCtx.destination)
   }
 
 
-  translateValues(knobOutput) { //I'm so sorry, this poorly named func actually also updates params!
+  translateValues(knobOutput) { //This poorly named func actually also updates params!
     const amplitude = knobOutput / 360.0
     this.gainNode.gain.exponentialRampToValueAtTime(amplitude, this.audioCtx.currentTime +.1); //avoids clicks :0
     return amplitude;

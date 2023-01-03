@@ -18,20 +18,16 @@ class Connection {
     this.sender = e.target.id;
 
     this.color = this.colors[ Math.floor( Math.random() * 7 ) ];
-    console.log("this color is", this.color)
     this.params = {
       waveform: this.sender.slice(0, 3),
       oscNum: this.sender.slice(this.sender.length-1) - 1,
       sender_id: this.sender,
       color: this.color
     };
+    // console.log("in send params", this.params)
 
     const osc = this.oscArray[this.params['oscNum']];
     osc.disconnect();
-
-
-
-
 
     // document.querySelector(`#${this.sender}`).style.backgroundColor = this.color;
     // document.querySelector(`#${this.sender}`).classList.add('active')
@@ -42,18 +38,21 @@ class Connection {
   receiveParams(e) {
     if (this.params){
       const osc = this.oscArray[this.params['oscNum']];
-      console.log("in receive params", this.params)
+      console.log("in receive param osc is", this.params['oscNum'])
 
       const ampKnobNum = e.target.id.slice(e.target.id.length-1) - 1;
       const ampKnob = this.ampKnobArray[ampKnobNum];
 
       ampKnob.updateOscillator(osc, this.params['waveform']);
 
+      console.log("in receive params color is", this.params.color)
+
       document.querySelector(`#${this.params.sender_id}`).style.backgroundColor = this.params.color;
-      document.querySelector(`#${this.params.sender_id}`).classList.add('active')
       document.querySelector(`#${e.target.id}`).style.backgroundColor = this.params.color;
+      document.querySelector(`#${this.params.sender_id}`).classList.add('active')
 
       this.params = null;
+
 
     }
   }
