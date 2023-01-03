@@ -126,13 +126,19 @@ const removeCable = (holeId) => {
   const inputId = particles[startIdx + 9].hole
   document.querySelector(`#${inputId}`).style.backgroundColor = 'black'
   particles.splice(startIdx, 10)
-  // console.log("inputId is", inputId)
 
 }
 
+const getNeighborOutput = (id) => {
+  const [wave, osc] = id.split('-');
+  console.log("neighbor id is", id);
+  console.log("neighbor id is", osc);
+  const otherWave = wave === 'sin' ? 'sqr' : 'sin';
+  const otherId = otherWave + '-' + osc;
+  return document.querySelector(`#${otherId}`)
+}
+
 function mousePressed(e) {
-  console.log("mosue pressed")
-  console.log("e is ", e)
 
   if (particles[0] && e.target.classList[1] === "input") {
     particles[particles.length-1].body.position.x = e.clientX
@@ -140,22 +146,30 @@ function mousePressed(e) {
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
     document.querySelector(`#${e.target.id}`).getBoundingClientRect().x
-    console.log("partciles in pressed are", particles)
   }
 
   if (e.target.classList[0] === "hole" && e.target.classList[1] !== "input") {
-    // if (true){
+
+    // destroy active connection
     if (e.target.classList[1] === "active"){
       removeCable(e.target.id)
       return
     }
+
+    const neighborOutput = getNeighborOutput(e.target.id)
+
+    if (neighborOutput.classList[1] === "active"){
+      removeCable(neighborOutput.id)
+      return
+    }
+    console.log("neighborOutput is", neighborOutput)
+
 
 
     //destroy hanging connection if there is one
     if (particles[particles.length-1] && particles[particles.length-1].body.isStatic !== true){
       particles = particles.slice(0, -10)
     }
-
 
     let isFixed = false;
     let prev = null;
