@@ -50,7 +50,7 @@ function draw() {
   // background('rgba(10,10,100, 0)'); // effect
   background('rgba(10,10,100, 0)'); // effect
 
-  background('palegoldenrod');
+  background('firebrick');
   for (i=0; i<particles.length; i++){
     particles[i].show();
   }

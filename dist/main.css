@@ -13,19 +13,21 @@ body {
 }
 
 .start-button {
-  display: inline-block;
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  background-color: #9198e5;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
+  font-size: 35px;
+  border-radius: 10px;
+  border: 3px solid rgb(203, 190, 119);
+  box-shadow: 0px 0px 10px #ff3886;
 }
 
-#start-button {
-  width: 10%;
-  font-size: 20px;
-  text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
+.start-button:hover {
+  cursor: pointer;
 }
 
 .outer-container {
@@ -90,11 +92,16 @@ body {
   border: 4 px black;
 }
 
+#draggablevco {
+  border: 10px solid gold;
+}
+
 .vco {
   display: flex;
   width: 420px;
   border: 4px solid black;
   border-radius: 6px;
+  border: 10px solid gold;
 }
 
 .io {
@@ -167,6 +174,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+#draggablevca {
+  border: 10px solid gold;
 }
 
 #amp-input {
