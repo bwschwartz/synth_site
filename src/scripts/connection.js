@@ -26,6 +26,13 @@ class Connection {
       color: this.color
     };
 
+    const osc = this.oscArray[this.params['oscNum']];
+    osc.disconnect();
+
+
+
+
+
     // document.querySelector(`#${this.sender}`).style.backgroundColor = this.color;
     // document.querySelector(`#${this.sender}`).classList.add('active')
 

@@ -111,6 +111,10 @@ function Particle(x, y, r, isFixed, hole, end) {
   this.end = end;
 }
 
+const turnOffOsc = (osc) => {
+  
+}
+
 const removeCable = (holeId) => {
   document.querySelector(`#${holeId}`).classList.remove('active')
   document.querySelector(`#${holeId}`).style.backgroundColor = 'black'
