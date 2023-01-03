@@ -24,7 +24,6 @@ class Connection {
       sender_id: this.sender,
       color: this.color
     };
-    // console.log("in send params", this.params)
 
     const osc = this.oscArray[this.params['oscNum']];
     osc.disconnect();
@@ -45,15 +44,12 @@ class Connection {
 
       ampKnob.updateOscillator(osc, this.params['waveform']);
 
-      console.log("in receive params color is", this.params.color)
 
       document.querySelector(`#${this.params.sender_id}`).style.backgroundColor = this.params.color;
       document.querySelector(`#${e.target.id}`).style.backgroundColor = this.params.color;
       document.querySelector(`#${this.params.sender_id}`).classList.add('active')
 
       this.params = null;
-
-
     }
   }
 
@@ -72,6 +68,7 @@ class Connection {
     document.querySelector(`#amp-in2`).addEventListener('mousedown', this.receiveParams.bind(this));
     document.querySelector(`#amp-in3`).addEventListener('mousedown', this.receiveParams.bind(this));
     document.querySelector(`#amp-in4`).addEventListener('mousedown', this.receiveParams.bind(this));
+
   }
 }
 

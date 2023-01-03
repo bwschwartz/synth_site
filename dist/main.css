@@ -14,10 +14,18 @@ body {
 
 .start-button {
   display: inline-block;
+  background-color: blue;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+}
+
+#start-button {
+  width: 10%;
+  font-size: 20px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .outer-container {
@@ -176,11 +184,4 @@ body {
   margin: 10%;
   width: 58px;
   height: 70px;
-}
-
-#start-button {
-  font-size: 20px;
-  padding: 10px;
-  text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
