@@ -1,11 +1,11 @@
-.vca {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  height: 700px;
-  width: 700px;
-  margin: 20px;
-}
+// .vca {
+//   display: flex;
+//   align-items: stretch;
+//   justify-content: space-between;
+//   height: 700px;
+//   width: 700px;
+//   margin: 20px;
+// }
 
 .vca-io {
   display: flex;
@@ -15,21 +15,46 @@
 }
 
 #vca-io{
-  display: flex;
-  background: palegoldenrod;
-  width: 260px;
-  justify-content: center;
+  // display: flex;
+  // background: palegoldenrod;
+  // width: 260px;
+  // justify-content: center;
 }
+
+// .vca{
+//   width: 260px;
+//   display: flex;
+//   background-color: green;
+// }
 
 .amplitude-knobs{
   position: relative;
   background-color:palegoldenrod;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-#draggablevca{
-  box-sizing: border-box;
+// #draggablevca{
+//   display: flex;
+//   flex-direction: column;
+//   background-color: yellow;
+//   box-sizing: border-box;
+//   align-items: space-between;
+//   // width: 100px;
+//   // border-color: white;
+// }
+
+#amp-input {
+  display: flex;
+  height: 100%;
   width: 100px;
-  border-color: white;
+  flex-direction: column;
+  background-color: palegoldenrod;
+  box-sizing: border-box;
+  justify-content: space-around;
+  align-items: center;
 
 }
 

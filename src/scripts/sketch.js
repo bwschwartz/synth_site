@@ -157,7 +157,7 @@ function mousePressed(e) {
         bodyA: p.body,
         bodyB: prev.body,
         length: 100,
-        stiffness: 1.0
+        stiffness: 0.4
       }
 
       const constraint = Constraint.create(constraintOptions)

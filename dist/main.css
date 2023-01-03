@@ -134,13 +134,15 @@ body {
   z-index: -1;
 }
 
+#amp-input {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
 .vca {
   display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  height: 700px;
-  width: 700px;
-  margin: 20px;
+  background-color: blue;
 }
 
 .vca-io {
@@ -150,22 +152,24 @@ body {
   align-items: stretch;
 }
 
-#vca-io {
-  display: flex;
-  background: palegoldenrod;
-  width: 260px;
-  justify-content: center;
-}
-
 .amplitude-knobs {
   position: relative;
   background-color: palegoldenrod;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-#draggablevca {
-  box-sizing: border-box;
+#amp-input {
+  display: flex;
+  height: 100%;
   width: 100px;
-  border-color: white;
+  flex-direction: column;
+  background-color: palegoldenrod;
+  box-sizing: border-box;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .temp-buttons {
