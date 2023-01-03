@@ -18,6 +18,7 @@ class Connection {
     this.sender = e.target.id;
 
     this.color = this.colors[ Math.floor( Math.random() * 7 ) ];
+    console.log("this color is", this.color)
     this.params = {
       waveform: this.sender.slice(0, 3),
       oscNum: this.sender.slice(this.sender.length-1) - 1,
@@ -26,7 +27,7 @@ class Connection {
     };
 
     // document.querySelector(`#${this.sender}`).style.backgroundColor = this.color;
-    document.querySelector(`#${this.sender}`).classList.add('active')
+    // document.querySelector(`#${this.sender}`).classList.add('active')
 
     this.sender = null;
   }
@@ -42,6 +43,7 @@ class Connection {
       ampKnob.updateOscillator(osc, this.params['waveform']);
 
       document.querySelector(`#${this.params.sender_id}`).style.backgroundColor = this.params.color;
+      document.querySelector(`#${this.params.sender_id}`).classList.add('active')
       document.querySelector(`#${e.target.id}`).style.backgroundColor = this.params.color;
 
       this.params = null;

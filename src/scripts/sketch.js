@@ -111,9 +111,23 @@ function Particle(x, y, r, isFixed, hole, end) {
   this.end = end;
 }
 
-function mouseDown(e) {
-  console.log("mouse down")
-  // e.stopPropagation();
+const removeCable = (holeId) => {
+  document.querySelector(`#${holeId}`).classList.remove('active')
+  document.querySelector(`#${holeId}`).style.backgroundColor = 'black'
+
+  let startIdx = 0;
+  for (let i=0; i<particles.length; i++){
+    if (particles[i].hole === holeId) {
+      startIdx = i;
+      break
+    }
+  }
+
+  const inputId = particles[startIdx + 9].hole
+  document.querySelector(`#${inputId}`).style.backgroundColor = 'black'
+  particles.splice(startIdx, 10)
+  // console.log("inputId is", inputId)
+
 }
 
 function mousePressed(e) {
@@ -121,7 +135,6 @@ function mousePressed(e) {
   console.log("e is ", e)
 
   if (particles[0] && e.target.classList[1] === "input") {
-    console.log("in input")
     particles[particles.length-1].body.position.x = e.clientX
     particles[particles.length-1].body.position.y = e.clientY
     particles[particles.length-1].body.isStatic = true;
@@ -131,6 +144,11 @@ function mousePressed(e) {
   }
 
   if (e.target.classList[0] === "hole" && e.target.classList[1] !== "input") {
+    // if (true){
+    if (e.target.classList[1] === "active"){
+      removeCable(e.target.id)
+      return
+    }
 
 
     //destroy hanging connection if there is one
