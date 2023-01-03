@@ -24,6 +24,7 @@ body {
   border-radius: 10px;
   border: 3px solid rgb(203, 190, 119);
   box-shadow: 0px 0px 10px #ff3886;
+  margin: 20px;
 }
 
 .start-button:hover {
@@ -94,6 +95,16 @@ body {
 
 #draggablevco {
   border: 10px solid gold;
+  margin: 20px;
+}
+
+.active-input {
+  background-color: white;
+  height: 40%;
+  width: 40%;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: none;
 }
 
 .vco {
@@ -134,6 +145,9 @@ body {
   width: 65px;
   height: 65px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hole:hover {
@@ -178,6 +192,7 @@ body {
 
 #draggablevca {
   border: 10px solid gold;
+  margin: 20px;
 }
 
 #amp-input {

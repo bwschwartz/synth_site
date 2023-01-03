@@ -48,7 +48,7 @@ function setup() {
 function draw() {
   // background(c); //blue
   // background('rgba(10,10,100, 0)'); // effect
-  background('rgba(10,10,100, 0)'); // effect
+  // background('rgba(10,10,100, 0)'); // effect
 
   background('firebrick');
   for (i=0; i<particles.length; i++){
@@ -91,15 +91,13 @@ function Particle(x, y, r, isFixed, hole, end) {
   this.end = end;
 }
 
-const turnOffOsc = (osc) => {
-
-}
 
 
 const removeCable = (holeId) => {
-  // console.log("remove cable is firing")
   document.querySelector(`#${holeId}`).classList.remove('active')
   document.querySelector(`#${holeId}`).style.backgroundColor = 'black'
+  console.log("in removecable hole id is", holeId)
+
 
   let startIdx = 0;
   for (let i=0; i<particles.length; i++){
@@ -110,6 +108,9 @@ const removeCable = (holeId) => {
   }
 
   const inputId = particles[startIdx + 9].hole
+  document.querySelector(`#active-${inputId.split('-')[1]}`).style.display = 'none';
+  document.querySelector(`#active-${holeId}`).style.display = 'none';
+
   document.querySelector(`#${inputId}`).style.backgroundColor = 'black'
   particles.splice(startIdx, 10)
 
@@ -117,15 +118,10 @@ const removeCable = (holeId) => {
 
 const getNeighborOutput = (id) => {
   const [wave, osc] = id.split('-');
-  console.log("neighbor id is", id);
-  console.log("neighbor id is", osc);
   const otherWave = wave === 'sin' ? 'sqr' : 'sin';
   const otherId = otherWave + '-' + osc;
   return document.querySelector(`#${otherId}`)
 }
-Matter.Sleeping._motionWakeThreshold = 1;
-Matter.Sleeping._motionSleepThreshold = 1;
-Matter.Sleeping._minBias = 0;
 
 function mousePressed(e) {
 
@@ -134,8 +130,6 @@ function mousePressed(e) {
     particles[particles.length-1].body.position.y = e.clientY;
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
-    // document.querySelector(`#${e.target.id}`).getBoundingClientRect().x
-    // console.log(particles)
     return
   }
 
@@ -209,13 +203,7 @@ function mouseDragged(e){
     if (particles[i].hole) {
       particles[i].body.position.x = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().x
       particles[i].body.position.y = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().y
-
-      // particles[i].body.position.y =  document.querySelector(`#${particles[i].hole}`).clientY
-
-
     }
-
-    // console.log("e.offsetX is", e)
   }
 
 }

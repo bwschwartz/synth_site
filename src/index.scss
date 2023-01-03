@@ -33,13 +33,17 @@ body {
   border-radius: 10px;
   border: 3px solid rgb(203, 190, 119);
   box-shadow: 0px 0px 10px #ff3886;
+  margin: 20px;
 }
 
 .start-button:hover{
   cursor: pointer;
 }
 
-
+// .active {
+//   background-color: blue;
+//   color:blue;
+// }
 
 .outer-container {
   display: flex;
@@ -106,13 +110,17 @@ body {
 
 #draggablevco{
   border: 10px solid gold;
+  margin: 20px;
 
 }
 
-
-
-#vca{
-  // border: 10px solid springgreen;
+.active-input{
+  background-color: white;
+  height: 40%;
+  width: 40%;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: none;
 }
 
 @import './styles/input.scss', './styles/vca.scss';

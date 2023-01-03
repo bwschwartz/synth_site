@@ -93,7 +93,6 @@ export class ampKnob extends Knob {
     } else {
       this.osc.type = 'sine';
     };
-    console.log("in update oscillator", osc)
 
     osc.connect(this.gainNode).connect(this.audioCtx.destination)
   }

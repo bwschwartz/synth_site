@@ -7,7 +7,7 @@ class Connection {
     this.receiver = null;
     this.params = null;
     this.color = null;
-    this.colors = ['cornsilk', 'paleogoldenrod', 'aliceblue', 'firebrick', 'azure', 'bisque', 'burlywood', 'darkseagreen'];
+    this.colors = ['cornsilk', 'palegoldenrod', 'aliceblue', 'firebrick', 'azure', 'bisque', 'burlywood', 'darkseagreen'];
   }
 
   init() {
@@ -37,7 +37,6 @@ class Connection {
   receiveParams(e) {
     if (this.params){
       const osc = this.oscArray[this.params['oscNum']];
-      console.log("in receive param osc is", this.params['oscNum'])
 
       const ampKnobNum = e.target.id.slice(e.target.id.length-1) - 1;
       const ampKnob = this.ampKnobArray[ampKnobNum];
@@ -45,8 +44,13 @@ class Connection {
       ampKnob.updateOscillator(osc, this.params['waveform']);
 
 
+      // console.log("in receive params, color iis", this.params.color)
+
       document.querySelector(`#${this.params.sender_id}`).style.backgroundColor = this.params.color;
       document.querySelector(`#${e.target.id}`).style.backgroundColor = this.params.color;
+      console.log("e is in receive", this.params.sender_id)
+      document.querySelector(`#active-${this.params.sender_id}`).style.display = 'block';
+      document.querySelector(`#active-${e.target.id.split('-')[1]}`).style.display = 'block';
       document.querySelector(`#${this.params.sender_id}`).classList.add('active')
 
       this.params = null;
