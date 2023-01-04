@@ -74,7 +74,7 @@ class Connection {
 
 
     //for nav bar
-    document.querySelector(`#instructions-button`).addEventListener('click',this.showInstructions);
+    document.querySelector(`#instructions-button`).addEventListener('mouseover',this.showInstructions);
     document.querySelector(`#close-instructions`).addEventListener('click',this.closeInstructions);
 
   }

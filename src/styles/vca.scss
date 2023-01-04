@@ -38,19 +38,21 @@
 
 #draggablevca{
   // border: 10px solid rgb(248, 232, 142);
-  margin: 100px;
+  margin: 9px;
   margin-top: 100px;
-  box-shadow: 0px 0px 50px #dcdcdc;
+  box-shadow: 4px 40px 10px 1px #dcdcdc;
   border-radius: 5px;
   // padding-left: 100px;
 }
 
 #draggablevco{
   // border: 10px solid gold;
-  margin: 100px;
+  margin: 90px;
   // margin-left: -55px;
   margin-top: 150px;
   box-shadow: 0px 0px 50px #dcdcdc;
+  box-shadow: 4px 40px 10px 1px #dcdcdc;
+
 }
 
 .start-button {
@@ -66,15 +68,15 @@
 
   font-size: 18px;
   border-radius: 10px;
-  border: 1.5px solid #f471e5b6;
+  border: .5px solid #f471e5b6;
   // border: 6px solid #ef1bd7b6;
-  border: 3.5px solid #ef1be4;
+  border: 1.5px solid #db66ffa5;
 
 
 
 
-  box-shadow: 0px 0px 120px #ff38e8;
-  box-shadow: 1px 2px 17px #a730f1;
+  box-shadow: 0px 0px 100px #ff38e8;
+  // box-shadow: 5px 10px 70px #ab05e8;
 
   // box-shadow: 0px 0px 120px #ffee38;
 
@@ -89,10 +91,10 @@
   // align-self: center;
   justify-self: center;
   position: absolute;
-  top: 390px;
-  right: 90.5px;
+  top: 420px;
+  right: 90px;
 
-  background-color:  rgb(69, 211, 126) ;
+  background-color:  rgba(115, 213, 146, 0.589);
 
 
 }
@@ -103,7 +105,7 @@
   background-color: firebrick ;
   color: rgb(69, 211, 126);
   border: 3.5px solid rgb(69, 211, 126);
-  box-shadow: 1px 0px 37px 38px rgb(167, 247, 76);
+  box-shadow: 1px 0px 20px 8px rgba(76, 247, 85, 0.73);
 
 }
 
