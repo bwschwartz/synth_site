@@ -43,12 +43,8 @@ class Connection {
 
       ampKnob.updateOscillator(osc, this.params['waveform']);
 
-
-      // console.log("in receive params, color iis", this.params.color)
-
       document.querySelector(`#${this.params.sender_id}`).style.backgroundColor = this.params.color;
       document.querySelector(`#${e.target.id}`).style.backgroundColor = this.params.color;
-      console.log("e is in receive", this.params.sender_id)
       document.querySelector(`#active-${this.params.sender_id}`).style.display = 'block';
       document.querySelector(`#active-${e.target.id.split('-')[1]}`).style.display = 'block';
       document.querySelector(`#${this.params.sender_id}`).classList.add('active')
@@ -73,6 +69,20 @@ class Connection {
     document.querySelector(`#amp-in3`).addEventListener('mousedown', this.receiveParams.bind(this));
     document.querySelector(`#amp-in4`).addEventListener('mousedown', this.receiveParams.bind(this));
 
+
+    //for nav bar
+    document.querySelector(`#instructions-button`).addEventListener('click',this.showInstructions);
+    document.querySelector(`#close-instructions`).addEventListener('click',this.closeInstructions);
+
+  }
+
+  closeInstructions = () => {
+    document.querySelector(`#instructions`).style.display="none"
+
+  }
+
+  showInstructions = () =>{
+    document.querySelector(`#instructions`).style.display="block"
   }
 }
 

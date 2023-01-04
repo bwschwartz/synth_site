@@ -11,34 +11,13 @@ h1 {
 }
 
 body {
-  background-color:burlywood;
+  background-color:firebrick;
   display: flex;
   align-items: stretch;
-  // justify-content: space-between;
-}
-
-.start-button {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  height:100px;
-  width: 100px;
-  background-color: #9198e5;
-  // background: linear-gradient(#e66465, #9198e5);
-
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  // text-align: center;
-  // text-decoration: none;
-  font-size: 35px;
-  border-radius: 10px;
-  border: 3px solid rgb(203, 190, 119);
-  box-shadow: 0px 0px 10px #ff3886;
-  margin: 20px;
 }
 
-.start-button:hover{
-  cursor: pointer;
-}
+
 
 // .active {
 //   background-color: blue;
@@ -108,11 +87,7 @@ body {
   border: 4 px black;
 }
 
-#draggablevco{
-  border: 10px solid gold;
-  margin: 20px;
 
-}
 
 .active-input{
   background-color: white;
@@ -122,6 +97,58 @@ body {
   border: 1px solid black;
   display: none;
 }
+
+#nav-bar {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  background-color:  rgb(69, 211, 126) ;
+  color: firebrick;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 40px;
+  box-shadow: 0px 0px 10px #d138ff;
+
+  // margin-bottom: -35px
+}
+
+#instructions{
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  // border: 3px solid black;
+  box-shadow: 0px 0px 30px #4f38ff;
+
+  // border-radius: 3px;
+  padding: 20px;
+  width: 800px;
+  font-size: 20px;
+  background-color: rgb(69, 152, 224);
+  color: rgb(248, 240, 161);
+}
+
+#instructions-button:hover{
+  cursor: pointer;
+}
+
+#close-instructions{
+  // width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  cursor:pointer;
+  color: rgb(135, 228, 172) ;
+  // font-size: 30px;
+  // border: 1px solid gold;
+}
+
+.link {
+  text-decoration: none;
+  color: firebrick;
+}
+
 
 @import './styles/input.scss', './styles/vca.scss';
 

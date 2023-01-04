@@ -22,6 +22,7 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0);
   canvas.style('z-index', '-1');
+  // canvas.style('display', 'block')
 
   engine = Engine.create();
   engine.enableSleeping = true;
@@ -126,8 +127,8 @@ const getNeighborOutput = (id) => {
 function mousePressed(e) {
 
   if (particles[0] && e.target.classList[1] === "input") {
-    particles[particles.length-1].body.position.x = e.clientX;
-    particles[particles.length-1].body.position.y = e.clientY;
+    particles[particles.length-1].body.position.x = e.target.getBoundingClientRect().x;
+    particles[particles.length-1].body.position.y =  e.target.getBoundingClientRect().y+30;
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
     return
