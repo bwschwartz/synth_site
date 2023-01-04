@@ -28,17 +28,18 @@ class Knob {
     if (this.amp === '') {
        x = e.pageX - (container.offsetLeft + this.knob.offsetLeft);
     } else {
-       x = e.pageX - (container.offsetLeft + this.knob.offsetLeft + 45);
+       x = e.pageX - (container.offsetLeft + this.knob.offsetLeft + 100);
     }
 
-    const y = e.pageY - (container.offsetTop + this.knob.offsetTop);
+    const y = e.pageY - (container.offsetTop + this.knob.offsetTop) ;
+    console.log("in get vals", e)
 
     const dX = w-x;
     const dY = h-y;
 
     const rad = Math.atan2(dY, dX);
 
-    const deg = rad * (180 / Math.PI); // deeply embarassing
+    const deg = rad * (180 / Math.PI);
 
     return deg;
   }
