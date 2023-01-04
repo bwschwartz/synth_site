@@ -39,7 +39,7 @@
 #draggablevca{
   // border: 10px solid rgb(248, 232, 142);
   margin: 50px;
-  margin-top: 40px;
+  margin-top: 100px;
   box-shadow: 0px 0px 50px #dcdcdc;
   border-radius: 5px;
   // padding-left: 100px;
@@ -49,7 +49,7 @@
   // border: 10px solid gold;
   margin: 50px;
   // margin-left: -55px;
-  margin-top: 40px;
+  margin-top: 100px;
   box-shadow: 0px 0px 50px #dcdcdc;
 }
 
@@ -61,20 +61,27 @@
   width: 60px;
   background-color: #9198e5;
 
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  // font-family: Georgia, 'Times New Roman', Times, serif;
+
   font-size: 15px;
   border-radius: 10px;
-  // border: 3px solid rgb(203, 190, 119);
-  box-shadow: 0px 0px 50px #ff38e8;
+  border: .5px solid #f471e5b6;
+  box-shadow: 0px 0px 40px #ff38e8;
   margin: 100px;
   // margin-left: 0px;
-  margin-top: 400px;
+  margin-top: 0px;
+  margin-right: 0px;
   color: firebrick;
   font-weight:bold;
   // color: blue;
 
   // align-self: center;
   justify-self: center;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+
 }
 
 .start-button:hover{

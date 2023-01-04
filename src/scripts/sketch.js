@@ -19,7 +19,7 @@ function setup() {
   // canvas.background('rgba(0,255,0, 0.25)')
 
 
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, 1500);
   canvas.position(0,0);
   canvas.style('z-index', '-1');
   // canvas.style('display', 'block')
@@ -60,9 +60,9 @@ function draw() {
 function Particle(x, y, r, isFixed, hole, end) {
   let particleOptions = {
     friction: .1,
-    frictionStatic: 100,
+    frictionStatic: .1,
     restitution: 0,
-    density: .001,
+    density: .1,
     isStatic: isFixed,
     chamfer: 0,
     collisionFilter: -1
@@ -127,10 +127,19 @@ const getNeighborOutput = (id) => {
 function mousePressed(e) {
 
   if (particles[0] && e.target.classList[1] === "input") {
-    particles[particles.length-1].body.position.x = e.target.getBoundingClientRect().x;
-    particles[particles.length-1].body.position.y =  e.target.getBoundingClientRect().y+30;
+
+
+    particles[particles.length-1].body.position.x = e.pageX;
+    // particles[particles.length-1].body.position.y =  e.target.getBoundingClientRect().y + 30;
+    particles[particles.length-1].body.position.y =  e.pageY;
+
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
+
+
+
+
+
     return
   }
 
@@ -157,8 +166,8 @@ function mousePressed(e) {
 
     let isFixed = false;
     let prev = null;
-    const  xPos = e.clientX;
-    const yPos = e.clientY;
+    const  xPos = e.pageX;
+    const yPos = e.pageY;
 
     for (let x = xPos; x < xPos +100; x+=10){
       let hole = null;
@@ -178,7 +187,7 @@ function mousePressed(e) {
         const constraintOptions = {
         bodyA: p.body,
         bodyB: prev.body,
-        length: .00001,
+        length: .1,
         stiffness: .1,
         damping: 0,
         render: {
@@ -200,11 +209,20 @@ function windowResized(){
 }
 
 function mouseDragged(e){
-  for (let i=0; i<particles.length; i++) {
-    if (particles[i].hole) {
-      particles[i].body.position.x = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().x
-      particles[i].body.position.y = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().y
+  // console.log(e)
+
+    for (let i=0; i<particles.length; i++) {
+      if (particles[i].hole) {
+
+
+        particles[i].body.position.x = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().x
+        particles[i].body.position.y = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().y + document.documentElement.scrollTop
+      }
     }
-  }
+    // console.log("lets go")
+
+
+
+
 
 }

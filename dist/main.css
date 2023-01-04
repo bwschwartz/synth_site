@@ -7,10 +7,10 @@ h1 {
 }
 
 body {
-  background-color: firebrick;
   display: flex;
   align-items: stretch;
   justify-content: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .outer-container {
@@ -121,7 +121,8 @@ body {
   margin-top: 10px;
   cursor: pointer;
   color: firebrick;
-  font-size: 25px;
+  text-decoration: underline;
+  text-style: italic;
 }
 
 .link {
@@ -215,14 +216,14 @@ body {
 
 #draggablevca {
   margin: 50px;
-  margin-top: 40px;
+  margin-top: 100px;
   box-shadow: 0px 0px 50px #dcdcdc;
   border-radius: 5px;
 }
 
 #draggablevco {
   margin: 50px;
-  margin-top: 40px;
+  margin-top: 100px;
   box-shadow: 0px 0px 50px #dcdcdc;
 }
 
@@ -233,15 +234,19 @@ body {
   height: 60px;
   width: 60px;
   background-color: #9198e5;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 15px;
   border-radius: 10px;
-  box-shadow: 0px 0px 50px #ff38e8;
+  border: 0.5px solid rgba(244, 113, 229, 0.7137254902);
+  box-shadow: 0px 0px 40px #ff38e8;
   margin: 100px;
-  margin-top: 400px;
+  margin-top: 0px;
+  margin-right: 0px;
   color: firebrick;
   font-weight: bold;
   justify-self: center;
+  position: absolute;
+  top: 55px;
+  right: 15px;
 }
 
 .start-button:hover {
