@@ -125,7 +125,7 @@ body {
 }
 
 #instructions{
-  display: none;
+  // display: none;
   position: absolute;
   top: 60px;
   left: 25px;
@@ -135,11 +135,14 @@ body {
 
 
   border-radius: 50px;
-  padding: 20px;
+  padding: 35px;
+  padding-right: 44px;
+  padding-left: 45px;
   width: 800px;
-  font-size: 20px;
+  font-size: 24px;
   background-color: rgb(96, 161, 217);
-  color: rgb(246, 243, 215);
+  color: rgb(245, 241, 206);
+  // color: palegoldenrod;
 }
 
 #instructions-button:hover{
@@ -149,7 +152,7 @@ body {
 #close-instructions{
   // width: 100%;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
   cursor:pointer;
   // color:  rgb(100, 231, 152)  ;
   color: firebrick;
@@ -163,7 +166,6 @@ body {
 
 #close-instructions:hover{
   text-decoration: underline;
-
 
 }
 

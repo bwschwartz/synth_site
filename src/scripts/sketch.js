@@ -51,7 +51,7 @@ function draw() {
   // background('rgba(10,10,100, 0)'); // effect
   // background('rgba(10,10,100, 0)'); // effect
 
-  background('firebrick');
+  background('transparent');
   for (i=0; i<particles.length; i++){
     particles[i].show();
   }
@@ -125,10 +125,13 @@ const getNeighborOutput = (id) => {
 }
 
 const checkIfActiveOutput = () => {
+  console.log("checking for input", document.querySelector('.active-input'))
+
 
 }
 
 function mousePressed(e) {
+  checkIfActiveOutput()
 
   if (particles[0] && e.target.classList[1] === "input") {
 
