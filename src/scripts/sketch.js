@@ -124,6 +124,10 @@ const getNeighborOutput = (id) => {
   return document.querySelector(`#${otherId}`)
 }
 
+const checkIfActiveOutput = () => {
+
+}
+
 function mousePressed(e) {
 
   if (particles[0] && e.target.classList[1] === "input") {
@@ -135,10 +139,6 @@ function mousePressed(e) {
 
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
-
-
-
-
 
     return
   }
@@ -155,9 +155,6 @@ function mousePressed(e) {
       removeCable(neighborOutput.id)
       return
     }
-
-
-
 
     //destroy hanging connection if there is one
     if (particles[particles.length-1] && particles[particles.length-1].body.isStatic !== true){
@@ -204,9 +201,9 @@ function mousePressed(e) {
 
 }
 
-function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized(){
+//   resizeCanvas(windowWidth, windowHeight);
+// }
 
 function mouseDragged(e){
   // console.log(e)
