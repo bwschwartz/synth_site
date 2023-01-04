@@ -193,9 +193,11 @@ body {
 .link {
   text-decoration: none;
   color: firebrick;
+  padding: 10px;
 }
 .link:hover{
-  text-decoration: underline;
+  // text-decoration: underline;
+  color: rgba(66, 90, 27, 0.7);
 }
 
 @import './styles/input.scss', './styles/vca.scss';

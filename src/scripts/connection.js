@@ -7,7 +7,7 @@ class Connection {
     this.receiver = null;
     this.params = null;
     this.color = null;
-    this.colors = ['cornsilk', 'palegoldenrod', 'aliceblue', 'firebrick', '`azure`', 'bisque', 'burlywood', 'rgb(69, 211, 126)'];
+    this.colors = ['cornsilk', 'palegoldenrod', 'aliceblue', 'firebrick', `azure`, 'bisque', 'burlywood', 'rgb(69, 211, 126)'];
 
 
   }
@@ -19,7 +19,8 @@ class Connection {
   sendParams(e) {
     this.sender = e.target.id;
 
-    this.color = this.colors[ Math.floor( Math.random() * 8 ) ];
+    this.color = this.colors[ Math.floor( Math.random() *  8 ) ];
+    console.log("the color is", this.color)
     this.params = {
       waveform: this.sender.slice(0, 3),
       oscNum: this.sender.slice(this.sender.length-1) - 1,

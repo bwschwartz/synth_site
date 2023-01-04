@@ -143,10 +143,11 @@ body {
 .link {
   text-decoration: none;
   color: firebrick;
+  padding: 10px;
 }
 
 .link:hover {
-  text-decoration: underline;
+  color: rgba(66, 90, 27, 0.7);
 }
 
 .vco {
@@ -277,6 +278,7 @@ body {
   background-color: firebrick;
   color: rgb(69, 211, 126);
   border: 3.5px solid rgb(69, 211, 126);
+  box-shadow: 1px 0px 37px 38px rgb(167, 247, 76);
 }
 
 #amp-input {
