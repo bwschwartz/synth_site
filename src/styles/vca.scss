@@ -72,8 +72,9 @@
 
 
 
+
   box-shadow: 0px 0px 120px #ff38e8;
-  box-shadow: 0px 0px 50px #a730f1;
+  box-shadow: 1px 2px 17px #a730f1;
 
   // box-shadow: 0px 0px 120px #ffee38;
 
@@ -99,7 +100,9 @@
 .start-button:hover{
   cursor: pointer;
   background-color: #82b6e6;
-  background-color:  rgb(131, 242, 90) ;
+  background-color: firebrick ;
+  color: rgb(69, 211, 126);
+  border: 3.5px solid rgb(69, 211, 126);
 }
 
 #amp-input {
