@@ -201,9 +201,9 @@ function mousePressed(e) {
 
 }
 
-// function windowResized(){
-//   resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 function mouseDragged(e){
   // console.log(e)
