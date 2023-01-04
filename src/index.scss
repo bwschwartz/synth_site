@@ -115,7 +115,15 @@ body {
   justify-content: space-between;
   font-size: 40px;
   box-shadow: 0px 0px 10px #d138ff;
-  padding-bottom: 5px;
+  box-shadow: 0px 0px 40px #d138ff;
+  box-shadow: 0px 0px 40px #a84cfedc;
+
+  // box-shadow: 0px 0px 140px #caff38b0;
+
+
+  padding-bottom: 16px;
+  padding-top: 16px;
+
   // padding-right: 100px;
   // padding-left: 100px;
 
@@ -125,10 +133,10 @@ body {
 }
 
 #instructions{
-  // display: none;
+  display: none;
   position: absolute;
-  top: 60px;
-  left: 25px;
+  top: 90px;
+  left: 20px;
   // border: 3px solid black;
   box-shadow: 0px 0px 30px #4f38ff;
   // box-shadow: 0px 0px 10px gold;
