@@ -82,6 +82,7 @@ body {
   border-radius: 50%;
   border: 1px solid black;
   display: none;
+  box-shadow: 0px 0px 5px black;
 }
 
 #nav-bar {
@@ -102,13 +103,13 @@ body {
   display: none;
   position: absolute;
   top: 60px;
-  left: 40px;
+  left: 25px;
   box-shadow: 0px 0px 30px #4f38ff;
   padding: 20px;
   width: 800px;
   font-size: 20px;
-  background-color: rgb(69, 152, 224);
-  color: rgb(248, 240, 161);
+  background-color: rgb(96, 161, 217);
+  color: rgb(246, 243, 215);
 }
 
 #instructions-button:hover {
@@ -117,9 +118,10 @@ body {
 
 #close-instructions {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
   cursor: pointer;
-  color: rgb(135, 228, 172);
+  color: firebrick;
+  font-size: 25px;
 }
 
 .link {
@@ -158,6 +160,7 @@ body {
   width: 80px;
   border-radius: 50%;
   background-color: black;
+  box-shadow: 0px 0px 7px black;
 }
 
 .hole {
@@ -234,9 +237,10 @@ body {
   font-size: 35px;
   border-radius: 10px;
   box-shadow: 0px 0px 50px #ff38e8;
-  margin: 20px;
+  margin: 100px;
   margin-top: 400px;
   color: firebrick;
+  justify-self: center;
 }
 
 .start-button:hover {

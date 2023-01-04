@@ -42,11 +42,13 @@
   margin-top: 40px;
   box-shadow: 0px 0px 50px #dcdcdc;
   border-radius: 5px;
+  // padding-left: 100px;
 }
 
 #draggablevco{
   // border: 10px solid gold;
   margin: 50px;
+  // margin-left: -55px;
   margin-top: 40px;
   box-shadow: 0px 0px 50px #dcdcdc;
 }
@@ -58,24 +60,25 @@
   height:100px;
   width: 100px;
   background-color: #9198e5;
-  // background: linear-gradient(#e66465, #9198e5);
 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  // text-align: center;
-  // text-decoration: none;
   font-size: 35px;
   border-radius: 10px;
   // border: 3px solid rgb(203, 190, 119);
   box-shadow: 0px 0px 50px #ff38e8;
-  margin: 20px;
+  margin: 100px;
+  // margin-left: 0px;
   margin-top: 400px;
   color: firebrick;
+  // color: blue;
+
+  // align-self: center;
+  justify-self: center;
 }
 
 .start-button:hover{
   cursor: pointer;
   background-color: #828ae6;
-
 }
 
 #amp-input {
@@ -96,5 +99,9 @@
   width: 58px;
   height: 70px;
 }
+
+// #git {
+//   margin-left: 80px;
+// }
 
 
