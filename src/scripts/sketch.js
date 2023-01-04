@@ -125,7 +125,14 @@ const getNeighborOutput = (id) => {
 }
 
 const checkIfActiveOutput = () => {
-  console.log("checking for input", document.querySelector('.active-input'))
+  console.log("checking for input", document.querySelector('.io'))
+  // const inputList = document.querySelector('.io')
+  // for (let i=0; i<inputList.length; i++) {
+  //   if (inputList[i]){
+  //     console.log("true")
+  //   }
+  // }
+  // document.queryselector(.)
 }
 
 
@@ -148,6 +155,7 @@ function mousePressed(e) {
 
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
+    console.log("in somewhere", e.target.id)
 
     return
   }
@@ -215,7 +223,7 @@ function windowResized(){
 }
 
 function mouseDragged(e){
-  // console.log(e)
+
 
     for (let i=0; i<particles.length; i++) {
       if (particles[i].hole) {

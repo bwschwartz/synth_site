@@ -57,20 +57,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:60px;
-  width: 60px;
+  height:55px;
+  width: 55px;
   background-color: #9198e5;
 
   // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   // font-family: Georgia, 'Times New Roman', Times, serif;
 
-  font-size: 15px;
+  font-size: 18px;
   border-radius: 10px;
   border: 1.5px solid #f471e5b6;
-  border: 3.5px solid #ef1bd7b6;
+  border: 6px solid #ef1bd7b6;
+  border: 3px solid #ef1be4;
+
+
 
   box-shadow: 0px 0px 120px #ff38e8;
-  box-shadow: 0px 0px 80px #f715dd;
+  box-shadow: 0px 0px 50px #a730f1;
 
   // box-shadow: 0px 0px 120px #ffee38;
 
@@ -86,13 +89,17 @@
   justify-self: center;
   position: absolute;
   top: 390px;
-  right: 90px;
+  right: 90.5px;
+
+  background-color:  rgb(69, 211, 126) ;
+
 
 }
 
 .start-button:hover{
   cursor: pointer;
-  background-color: #828ae6;
+  background-color: #82b6e6;
+  background-color:  rgb(131, 242, 90) ;
 }
 
 #amp-input {

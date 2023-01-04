@@ -135,10 +135,14 @@ body {
 #instructions{
   display: none;
   position: absolute;
-  top: 90px;
-  left: 20px;
+  top: 103px;
+  left: 32px;
   // border: 3px solid black;
   box-shadow: 0px 0px 30px #4f38ff;
+  border: 1.5px solid #ef1bd7b6;
+
+  box-shadow: 0px 5px 5px 35px #f715ddc6;
+
   // box-shadow: 0px 0px 10px gold;
 
 
@@ -149,7 +153,10 @@ body {
   width: 800px;
   font-size: 24px;
   background-color: rgb(96, 161, 217);
+  background-color: rgba(86, 141, 189, 0.857);
+
   color: rgb(245, 241, 206);
+
   // color: palegoldenrod;
 }
 
@@ -165,10 +172,11 @@ body {
   cursor:pointer;
   // color:  rgb(100, 231, 152)  ;
   color: firebrick;
-  // font-size: 25px;
+  color: #f715dd58;
+  // font-size: 30px;
   // text-decoration: underline;
 
-  // font-weight: 700;
+  font-weight: bold;
   // font-size: 30px;
   // border: 1px solid gold;
 }
