@@ -126,11 +126,17 @@ const getNeighborOutput = (id) => {
 
 const checkIfActiveOutput = () => {
   console.log("checking for input", document.querySelector('.active-input'))
-
-
 }
 
+
 function mousePressed(e) {
+
+  if(e.target.id!=="instructions"){
+    document.querySelector('#instructions').style.display='none';
+  }
+
+
+
   checkIfActiveOutput()
 
   if (particles[0] && e.target.classList[1] === "input") {

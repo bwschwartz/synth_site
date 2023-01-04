@@ -17,7 +17,7 @@ class Connection {
   sendParams(e) {
     this.sender = e.target.id;
 
-    this.color = this.colors[ Math.floor( Math.random() * 7 ) ];
+    this.color = this.colors[ Math.floor( Math.random() * 8 ) ];
     this.params = {
       waveform: this.sender.slice(0, 3),
       oscNum: this.sender.slice(this.sender.length-1) - 1,

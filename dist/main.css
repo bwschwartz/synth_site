@@ -126,6 +126,7 @@ body {
 #close-instructions {
   text-align: center;
   margin-top: 20px;
+  font-style: italic;
   cursor: pointer;
   color: firebrick;
 }
@@ -249,8 +250,10 @@ body {
   background-color: #9198e5;
   font-size: 15px;
   border-radius: 10px;
-  border: 0.5px solid rgba(244, 113, 229, 0.7137254902);
+  border: 1.5px solid rgba(244, 113, 229, 0.7137254902);
+  border: 3.5px solid rgba(239, 27, 215, 0.7137254902);
   box-shadow: 0px 0px 120px #ff38e8;
+  box-shadow: 0px 0px 80px #f715dd;
   margin: 100px;
   margin-top: 0px;
   margin-right: 0px;
