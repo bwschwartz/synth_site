@@ -57,12 +57,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100px;
-  width: 100px;
+  height:60px;
+  width: 60px;
   background-color: #9198e5;
 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 35px;
+  font-size: 15px;
   border-radius: 10px;
   // border: 3px solid rgb(203, 190, 119);
   box-shadow: 0px 0px 50px #ff38e8;
@@ -70,6 +70,7 @@
   // margin-left: 0px;
   margin-top: 400px;
   color: firebrick;
+  font-weight:bold;
   // color: blue;
 
   // align-self: center;

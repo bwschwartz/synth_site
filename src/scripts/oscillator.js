@@ -17,14 +17,14 @@ class Oscillator {
     const onOffButton =  document.querySelector(`.start-button`);
 
     onOffButton.addEventListener('click', function(e) {
-      if (onOffButton.innerText ==="On") {
-        setTimeout(()=>{onOffButton.innerText = "Off"}, 100
+      if (onOffButton.innerText ==="ON") {
+        setTimeout(()=>{onOffButton.innerText = "OFF"}, 100
         )
         audioCtx.resume();
         return
       }
-      if (onOffButton.innerText ==="Off" && audioCtx.state !=="closed" ){
-        setTimeout(()=>{onOffButton.innerText = "On"}, 200
+      if (onOffButton.innerText ==="OFF" && audioCtx.state !=="closed" ){
+        setTimeout(()=>{onOffButton.innerText = "ON"}, 200
         )
 
       audioCtx.suspend()

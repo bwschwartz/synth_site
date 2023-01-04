@@ -230,16 +230,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   background-color: #9198e5;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 35px;
+  font-size: 15px;
   border-radius: 10px;
   box-shadow: 0px 0px 50px #ff38e8;
   margin: 100px;
   margin-top: 400px;
   color: firebrick;
+  font-weight: bold;
   justify-self: center;
 }
 
