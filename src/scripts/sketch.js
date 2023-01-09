@@ -52,6 +52,7 @@ function draw() {
   // background('rgba(10,10,100, 0)'); // effect
 
   background('transparent');
+  // background('aliceblue');
   for (i=0; i<particles.length; i++){
     particles[i].show();
   }
@@ -95,8 +96,11 @@ function Particle(x, y, r, isFixed, hole, end) {
 
 
 const removeCable = (holeId) => {
+  document.getElementById('connector').classList.remove('connection-is-active')
+
   document.querySelector(`#${holeId}`).classList.remove('active')
-  document.querySelector(`#${holeId}`).style.backgroundColor = 'black'
+  // document.querySelector(`#${holeId}`).style.backgroundColor:hover = 'blue'
+
   console.log("in removecable hole id is", holeId)
 
 
@@ -112,7 +116,11 @@ const removeCable = (holeId) => {
   document.querySelector(`#active-${inputId.split('-')[1]}`).style.display = 'none';
   document.querySelector(`#active-${holeId}`).style.display = 'none';
 
-  document.querySelector(`#${inputId}`).style.backgroundColor = 'black'
+  // document.querySelector(`#${holeId}`).style.backgroundColor = 'black'
+  // document.querySelector(`#${inputId}`).style.backgroundColor = 'black'
+  document.querySelector(`#${holeId}`).style.removeProperty('background-color')
+  document.querySelector(`#${inputId}`).style.removeProperty('background-color')
+
   particles.splice(startIdx, 10)
 
 }
@@ -124,29 +132,18 @@ const getNeighborOutput = (id) => {
   return document.querySelector(`#${otherId}`)
 }
 
-const checkIfActiveOutput = () => {
-  console.log("checking for input", document.querySelector('.io'))
-  // const inputList = document.querySelector('.io')
-  // for (let i=0; i<inputList.length; i++) {
-  //   if (inputList[i]){
-  //     console.log("true")
-  //   }
-  // }
-  // document.queryselector(.)
-}
 
 
 function mousePressed(e) {
+  // if (e.target.classList[1] === "input" && document.getElementById('connector').classList[0] !== 'connection-is-active') return
 
   if(e.target.id!=="instructions"){
     document.querySelector('#instructions').style.display='none';
   }
 
 
-
-  checkIfActiveOutput()
-
   if (particles[0] && e.target.classList[1] === "input") {
+    if (document.getElementById('connector').classList[0] !== 'connection-is-active') return
 
 
     particles[particles.length-1].body.position.x = e.pageX;
@@ -155,12 +152,17 @@ function mousePressed(e) {
 
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
-    console.log("in somewhere", e.target.id)
+    document.getElementById('connector').classList.remove('connection-is-active')
+    console.log("in input", document.getElementById('connector'))
 
     return
   }
 
   if (e.target.classList[0] === "hole" && e.target.classList[1] !== "input") {
+    document.getElementById('connector').classList.add("connection-is-active")
+
+    console.log("in output",document.getElementById('connector') )
+
 
     // destroy active connection
     if (e.target.classList[1] === "active"){
@@ -224,16 +226,13 @@ function windowResized(){
 
 function mouseDragged(e){
 
-
     for (let i=0; i<particles.length; i++) {
       if (particles[i].hole) {
-
 
         particles[i].body.position.x = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().x
         particles[i].body.position.y = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().y + document.documentElement.scrollTop
       }
     }
-    // console.log("lets go")
 
 
 

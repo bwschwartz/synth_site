@@ -20,7 +20,6 @@ class Connection {
     this.sender = e.target.id;
 
     this.color = this.colors[ Math.floor( Math.random() *  8 ) ];
-    console.log("the color is", this.color)
     this.params = {
       waveform: this.sender.slice(0, 3),
       oscNum: this.sender.slice(this.sender.length-1) - 1,
@@ -38,6 +37,8 @@ class Connection {
   }
 
   receiveParams(e) {
+    if (document.getElementById('connector').classList[0] !== 'connection-is-active') return
+
     if (this.params){
       const osc = this.oscArray[this.params['oscNum']];
 
