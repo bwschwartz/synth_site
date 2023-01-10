@@ -51,6 +51,8 @@ function draw() {
   // background('rgba(10,10,100, 0)'); // effect
   // background('rgba(10,10,100, 0)'); // effect
 
+  // chartreuse #6ab61e
+
   background('transparent');
   // background('aliceblue');
   for (i=0; i<particles.length; i++){
@@ -147,8 +149,8 @@ function mousePressed(e) {
 
 
     particles[particles.length-1].body.position.x = e.pageX;
-    // particles[particles.length-1].body.position.y =  e.target.getBoundingClientRect().y + 30;
-    particles[particles.length-1].body.position.y =  e.pageY;
+    particles[particles.length-1].body.position.y =  e.pageY + 34;
+    // particles[particles.length-1].body.position.y =  e.pageY;
 
     particles[particles.length-1].body.isStatic = true;
     particles[particles.length-1].hole = e.target.id;
@@ -230,7 +232,7 @@ function mouseDragged(e){
       if (particles[i].hole) {
 
         particles[i].body.position.x = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().x
-        particles[i].body.position.y = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().y + document.documentElement.scrollTop
+        particles[i].body.position.y = document.querySelector(`#${particles[i].hole}`).getBoundingClientRect().y + document.documentElement.scrollTop + 33
       }
     }
 
