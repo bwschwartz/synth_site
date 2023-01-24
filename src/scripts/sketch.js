@@ -149,7 +149,8 @@ function mousePressed(e) {
 
 
     particles[particles.length-1].body.position.x = e.pageX;
-    particles[particles.length-1].body.position.y =  e.pageY + 34;
+    particles[particles.length-1].body.position.y =  e.pageY;
+
     // particles[particles.length-1].body.position.y =  e.pageY;
 
     particles[particles.length-1].body.isStatic = true;
@@ -162,8 +163,6 @@ function mousePressed(e) {
 
   if (e.target.classList[0] === "hole" && e.target.classList[1] !== "input") {
     document.getElementById('connector').classList.add("connection-is-active")
-
-    console.log("in output",document.getElementById('connector') )
 
 
     // destroy active connection
